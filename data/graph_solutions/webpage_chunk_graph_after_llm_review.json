@@ -1,0 +1,1075 @@
+{
+  "nodes": [
+    {
+      "id": "chunk:0",
+      "labels": [
+        "Section",
+        "Chunk"
+      ],
+      "properties": {
+        "index": 0,
+        "name": "Immersive Alpine Gatherings",
+        "content": "# Immersive Alpine Gatherings  \nTimeless hospitality, modern excellence  \nWayfarer creates unforgettable corporate retreats, executive offsites, and private celebrations in the Alps. We handle every detail\u2014from venue selection to multi-day programming.  \n[View Sample Itinerary](pages/schedule.html)\n[Explore Venues](pages/venue.html)  \nCorporate retreatsExecutive offsitesPrivate celebrations  \nOur Approach\n**Immersive Retreats**  \nCarefully curated experiences that blend mountain hospitality, meaningful connection, and lasting impact.  \n**14+**Years of experience  \n**2**Curated venues  \n**20-150**Guest capacity range  \nBespoke Design",
+        "section": "Immersive Alpine Gatherings",
+        "heading_level": 1,
+        "part_index": 1,
+        "part_count": 2,
+        "source": "https://federicab03.github.io/ARGO_Usecase/index.html"
+      }
+    },
+    {
+      "id": "chunk:1",
+      "labels": [
+        "Section",
+        "Chunk"
+      ],
+      "properties": {
+        "index": 1,
+        "name": "Every gathering is uniquely yours",
+        "content": "## Every gathering is uniquely yours  \nWe craft experiences tailored to your group's goals and culture. Whether you're aligning teams, celebrating milestones, or exploring strategic futures, we design the retreat to fit your vision.  \nOur curated venues, professional catering, and diverse activity offerings ensure each moment resonates with authenticity and purpose.  \n[How we work](pages/faq.html)  \nOur Services",
+        "section": "Immersive Alpine Gatherings > Every gathering is uniquely yours",
+        "heading_level": 2,
+        "part_index": 1,
+        "part_count": 2,
+        "source": "https://federicab03.github.io/ARGO_Usecase/index.html"
+      }
+    },
+    {
+      "id": "chunk:2",
+      "labels": [
+        "Subsection",
+        "Chunk"
+      ],
+      "properties": {
+        "index": 2,
+        "name": "Catering & Dining",
+        "content": "## Tailored experiences for every occasion  \n### Catering & Dining  \nLocal alpine cuisine, dietary flexibility, and intimate dining formats designed to foster connection.  \n[Open page](pages/food.html)",
+        "section": "Immersive Alpine Gatherings > Tailored experiences for every occasion > Catering & Dining",
+        "heading_level": 3,
+        "part_index": 1,
+        "part_count": 2,
+        "source": "https://federicab03.github.io/ARGO_Usecase/index.html"
+      }
+    },
+    {
+      "id": "chunk:3",
+      "labels": [
+        "Subsection",
+        "Chunk"
+      ],
+      "properties": {
+        "index": 3,
+        "name": "Activities & Entertainment",
+        "content": "### Activities & Entertainment  \nGuided hikes, storytelling sessions, workshops, live performances, and seasonal experiences.  \n[Open page](pages/music.html)",
+        "section": "Immersive Alpine Gatherings > Tailored experiences for every occasion > Activities & Entertainment",
+        "heading_level": 3,
+        "part_index": 1,
+        "part_count": 2,
+        "source": "https://federicab03.github.io/ARGO_Usecase/index.html"
+      }
+    },
+    {
+      "id": "chunk:4",
+      "labels": [
+        "Subsection",
+        "Chunk"
+      ],
+      "properties": {
+        "index": 4,
+        "name": "Venue & Logistics",
+        "content": "### Venue & Logistics  \nTwo distinct Alpine venues with full accommodation, weather backup, and technical capabilities.  \n[Open page](pages/venue.html)  \n---",
+        "section": "Immersive Alpine Gatherings > Tailored experiences for every occasion > Venue & Logistics",
+        "heading_level": 3,
+        "part_index": 1,
+        "part_count": 2,
+        "source": "https://federicab03.github.io/ARGO_Usecase/index.html"
+      }
+    },
+    {
+      "id": "chunk:5",
+      "labels": [
+        "NextPart",
+        "Chunk"
+      ],
+      "properties": {
+        "index": 5,
+        "name": "Immersive Alpine Gatherings \u2014 Part 2",
+        "content": "# Immersive Alpine Gatherings  \nTimeless hospitality, modern excellence  \nWayfarer creates unforgettable corporate retreats, executive offsites, and private celebrations in the Alps. We handle every detail\u2014from venue selection to multi-day programming.  \n[View Sample Itinerary](pages/schedule.html)\n[Explore Venues](pages/venue.html)  \nCorporate retreatsExecutive offsitesPrivate celebrations  \nOur Approach\n**Immersive Retreats**  \nCarefully curated experiences that blend mountain hospitality, meaningful connection, and lasting impact.  \n**14+**Years of experience  \n**2**Curated venues  \n**20-150**Guest capacity range  \nBespoke Design",
+        "section": "Immersive Alpine Gatherings",
+        "heading_level": 1,
+        "part_index": 2,
+        "part_count": 2,
+        "source": "https://federicab03.github.io/ARGO_Usecase/index.html"
+      }
+    },
+    {
+      "id": "chunk:6",
+      "labels": [
+        "NextPart",
+        "Chunk"
+      ],
+      "properties": {
+        "index": 6,
+        "name": "Every gathering is uniquely yours \u2014 Part 2",
+        "content": "## Every gathering is uniquely yours  \nWe craft experiences tailored to your group's goals and culture. Whether you're aligning teams, celebrating milestones, or exploring strategic futures, we design the retreat to fit your vision.  \nOur curated venues, professional catering, and diverse activity offerings ensure each moment resonates with authenticity and purpose.  \n[How we work](pages/faq.html)  \nOur Services",
+        "section": "Immersive Alpine Gatherings > Every gathering is uniquely yours",
+        "heading_level": 2,
+        "part_index": 2,
+        "part_count": 2,
+        "source": "https://federicab03.github.io/ARGO_Usecase/index.html"
+      }
+    },
+    {
+      "id": "chunk:7",
+      "labels": [
+        "NextPart",
+        "Chunk"
+      ],
+      "properties": {
+        "index": 7,
+        "name": "Catering & Dining \u2014 Part 2",
+        "content": "## Tailored experiences for every occasion  \n### Catering & Dining  \nLocal alpine cuisine, dietary flexibility, and intimate dining formats designed to foster connection.  \n[Open page](pages/food.html)",
+        "section": "Immersive Alpine Gatherings > Tailored experiences for every occasion > Catering & Dining",
+        "heading_level": 3,
+        "part_index": 2,
+        "part_count": 2,
+        "source": "https://federicab03.github.io/ARGO_Usecase/index.html"
+      }
+    },
+    {
+      "id": "chunk:8",
+      "labels": [
+        "NextPart",
+        "Chunk"
+      ],
+      "properties": {
+        "index": 8,
+        "name": "Activities & Entertainment \u2014 Part 2",
+        "content": "### Activities & Entertainment  \nGuided hikes, storytelling sessions, workshops, live performances, and seasonal experiences.  \n[Open page](pages/music.html)",
+        "section": "Immersive Alpine Gatherings > Tailored experiences for every occasion > Activities & Entertainment",
+        "heading_level": 3,
+        "part_index": 2,
+        "part_count": 2,
+        "source": "https://federicab03.github.io/ARGO_Usecase/index.html"
+      }
+    },
+    {
+      "id": "chunk:9",
+      "labels": [
+        "NextPart",
+        "Chunk"
+      ],
+      "properties": {
+        "index": 9,
+        "name": "Venue & Logistics \u2014 Part 2",
+        "content": "### Venue & Logistics  \nTwo distinct Alpine venues with full accommodation, weather backup, and technical capabilities.  \n[Open page](pages/venue.html)  \n---",
+        "section": "Immersive Alpine Gatherings > Tailored experiences for every occasion > Venue & Logistics",
+        "heading_level": 3,
+        "part_index": 2,
+        "part_count": 2,
+        "source": "https://federicab03.github.io/ARGO_Usecase/index.html"
+      }
+    },
+    {
+      "id": "chunk:10",
+      "labels": [
+        "Section",
+        "Chunk"
+      ],
+      "properties": {
+        "index": 10,
+        "name": "Request a Proposal",
+        "content": "# Request a Proposal  \nBegin Your Retreat  \nTell us about your vision. We'll craft a tailored proposal and guide you to the perfect Alpine gathering.  \nReady to bring your team together? Contact us to discuss group size, dates, objectives, and any special requirements. We'll build a customized experience from the ground up.  \n**Request a Proposal**  \nShare your vision with us. Together, we'll design the retreat that captures your dreams and exceeds your expectations.  \nProject Lead",
+        "section": "Request a Proposal",
+        "heading_level": 1,
+        "part_index": 1,
+        "part_count": 1,
+        "source": "https://federicab03.github.io/ARGO_Usecase/pages/contact.html"
+      }
+    },
+    {
+      "id": "chunk:11",
+      "labels": [
+        "Section",
+        "Chunk"
+      ],
+      "properties": {
+        "index": 11,
+        "name": "Wayfarer Retreat Planning",
+        "content": "### Wayfarer Retreat Planning  \nEmail",
+        "section": "Request a Proposal > Wayfarer Retreat Planning",
+        "heading_level": 2,
+        "part_index": 1,
+        "part_count": 1,
+        "source": "https://federicab03.github.io/ARGO_Usecase/pages/contact.html"
+      }
+    },
+    {
+      "id": "chunk:12",
+      "labels": [
+        "Section",
+        "Chunk"
+      ],
+      "properties": {
+        "index": 12,
+        "name": "hello@wayfarer-retreats.alpine",
+        "content": "### hello@wayfarer-retreats.alpine  \nPhone",
+        "section": "Request a Proposal > hello@wayfarer-retreats.alpine",
+        "heading_level": 2,
+        "part_index": 1,
+        "part_count": 1,
+        "source": "https://federicab03.github.io/ARGO_Usecase/pages/contact.html"
+      }
+    },
+    {
+      "id": "chunk:13",
+      "labels": [
+        "Section",
+        "Chunk"
+      ],
+      "properties": {
+        "index": 13,
+        "name": "+39 258 256 1209",
+        "content": "### +39 258 256 1209  \n---",
+        "section": "Request a Proposal > +39 258 256 1209",
+        "heading_level": 2,
+        "part_index": 1,
+        "part_count": 1,
+        "source": "https://federicab03.github.io/ARGO_Usecase/pages/contact.html"
+      }
+    },
+    {
+      "id": "chunk:14",
+      "labels": [
+        "Section",
+        "Chunk"
+      ],
+      "properties": {
+        "index": 14,
+        "name": "Frequently Asked Questions",
+        "content": "# Frequently Asked Questions  \nWorking with Wayfarer  \nEverything you need to know about planning a retreat with us.  \nHave questions about customization, logistics, pricing, or capabilities? We've compiled answers to common inquiries.  \n**Frequently Asked Questions**  \nQuestions answered. Doubts resolved. Every detail thoughtfully explained so you can plan with confidence.  \nHow far in advance should we book?  \nWe recommend 3\u20136 months for corporate events to ensure venue and activity availability. Shorter timelines may be possible depending on dates and scale.  \nCan you accommodate groups of any size?  \nOur venues range from 20\u2013150 guests. For larger groups or bespoke requirements, we can coordinate multiple venues or partner spaces.  \nAre meals included in pricing?  \nYes. All Wayfarer packages include full catering with customizable menus. Dietary preferences and restrictions are accommodated at no additional cost.  \nWhat happens if weather is poor?  \nBoth venues include fully equipped indoor spaces and weather backup plans. All outdoor activities have indoor alternatives that maintain program integrity.  \nDo you provide accommodation?  \nYes. Both venues include overnight accommodation. Room options range from standard doubles to suites. We also arrange transportation to/from airports or rail stations.  \nWhat activities are available?  \nOptions include guided hikes, storytelling sessions, workshops, live performances, cooking classes, and custom team-building experiences. We tailor the roster to your group's objectives.  \nCan we bring our own speakers or facilitators?  \nAbsolutely. We host client-led sessions, guest speakers, and custom programming alongside our own activity roster. All technical and logistical support is provided.  \nWhat is your cancellation policy?",
+        "section": "Frequently Asked Questions",
+        "heading_level": 1,
+        "part_index": 1,
+        "part_count": 2,
+        "source": "https://federicab03.github.io/ARGO_Usecase/pages/faq.html"
+      }
+    },
+    {
+      "id": "chunk:15",
+      "labels": [
+        "NextPart",
+        "Chunk"
+      ],
+      "properties": {
+        "index": 15,
+        "name": "Frequently Asked Questions \u2014 Part 2",
+        "content": "Can we bring our own speakers or facilitators?  \nAbsolutely. We host client-led sessions, guest speakers, and custom programming alongside our own activity roster. All technical and logistical support is provided.  \nWhat is your cancellation policy?  \nDeposits are non-refundable but can be applied to future dates. For full terms, we discuss cancellation conditions during your proposal consultation.  \nDo you handle transportation?  \nWe arrange ground transportation between local airports and venues, plus any inter-venue or day-trip logistics your program requires.  \n---",
+        "section": "Frequently Asked Questions",
+        "heading_level": 1,
+        "part_index": 2,
+        "part_count": 2,
+        "source": "https://federicab03.github.io/ARGO_Usecase/pages/faq.html"
+      }
+    },
+    {
+      "id": "chunk:16",
+      "labels": [
+        "Section",
+        "Chunk"
+      ],
+      "properties": {
+        "index": 16,
+        "name": "Catering & Dining",
+        "content": "# Catering & Dining  \nLocal & Seasonal  \nThoughtfully curated alpine cuisine designed to nourish and inspire connection.  \nWe believe great food brings people together. Our menus feature regional ingredients, artisanal producers, and flexible dining formats that suit corporate events, intimate celebrations, and large conferences.  \n**Catering & Dining**  \nTaste the essence of alpine hospitality. Our chefs craft menus that celebrate local traditions while nourishing your body and soul.  \nDietary Flexibility",
+        "section": "Catering & Dining",
+        "heading_level": 1,
+        "part_index": 1,
+        "part_count": 1,
+        "source": "https://federicab03.github.io/ARGO_Usecase/pages/food.html"
+      }
+    },
+    {
+      "id": "chunk:17",
+      "labels": [
+        "Subsection",
+        "Chunk"
+      ],
+      "properties": {
+        "index": 17,
+        "name": "Vegetarian & Vegan",
+        "content": "## We accommodate all preferences  \n### Vegetarian & Vegan  \nFull menus available. We work with local farms for seasonal vegetables and plant-based specialties.",
+        "section": "Catering & Dining > We accommodate all preferences > Vegetarian & Vegan",
+        "heading_level": 3,
+        "part_index": 1,
+        "part_count": 1,
+        "source": "https://federicab03.github.io/ARGO_Usecase/pages/food.html"
+      }
+    },
+    {
+      "id": "chunk:18",
+      "labels": [
+        "Subsection",
+        "Chunk"
+      ],
+      "properties": {
+        "index": 18,
+        "name": "Allergies & Intolerances",
+        "content": "### Allergies & Intolerances  \nGluten-free, dairy-free, nut-free options prepared separately with full traceability.",
+        "section": "Catering & Dining > We accommodate all preferences > Allergies & Intolerances",
+        "heading_level": 3,
+        "part_index": 1,
+        "part_count": 1,
+        "source": "https://federicab03.github.io/ARGO_Usecase/pages/food.html"
+      }
+    },
+    {
+      "id": "chunk:19",
+      "labels": [
+        "Subsection",
+        "Chunk"
+      ],
+      "properties": {
+        "index": 19,
+        "name": "Cultural & Religious",
+        "content": "### Cultural & Religious  \nHalal, kosher, and other dietary requirements accommodated with advance notice.  \n[More questions? See FAQs](../pages/faq.html)  \n---",
+        "section": "Catering & Dining > We accommodate all preferences > Cultural & Religious",
+        "heading_level": 3,
+        "part_index": 1,
+        "part_count": 1,
+        "source": "https://federicab03.github.io/ARGO_Usecase/pages/food.html"
+      }
+    },
+    {
+      "id": "chunk:20",
+      "labels": [
+        "Section",
+        "Chunk"
+      ],
+      "properties": {
+        "index": 20,
+        "name": "Activities & Entertainment",
+        "content": "# Activities & Entertainment  \nEngagement & Inspiration  \nDiverse experiences designed to energize teams and create lasting memories.  \nBeyond the boardroom. Our activity roster includes guided adventures, skill-building workshops, cultural experiences, and professional entertainment\u2014all customizable to your group's interests and schedule.  \n**Activities & Entertainment**  \nFrom sunrise hikes to fireside gatherings, each experience is designed to awaken your spirit and strengthen bonds that endure.",
+        "section": "Activities & Entertainment",
+        "heading_level": 1,
+        "part_index": 1,
+        "part_count": 1,
+        "source": "https://federicab03.github.io/ARGO_Usecase/pages/music.html"
+      }
+    },
+    {
+      "id": "chunk:21",
+      "labels": [
+        "Section",
+        "Chunk"
+      ],
+      "properties": {
+        "index": 21,
+        "name": "Guided Experiences",
+        "content": "### Guided Experiences  \nMountain hikes, forest walks, or photography expeditions led by local experts.",
+        "section": "Activities & Entertainment > Guided Experiences",
+        "heading_level": 2,
+        "part_index": 1,
+        "part_count": 1,
+        "source": "https://federicab03.github.io/ARGO_Usecase/pages/music.html"
+      }
+    },
+    {
+      "id": "chunk:22",
+      "labels": [
+        "Section",
+        "Chunk"
+      ],
+      "properties": {
+        "index": 22,
+        "name": "Workshops & Talks",
+        "content": "### Workshops & Talks  \nLeadership sessions, creative skill-building, mindfulness practices, and curated guest speakers.",
+        "section": "Activities & Entertainment > Workshops & Talks",
+        "heading_level": 2,
+        "part_index": 1,
+        "part_count": 1,
+        "source": "https://federicab03.github.io/ARGO_Usecase/pages/music.html"
+      }
+    },
+    {
+      "id": "chunk:23",
+      "labels": [
+        "Section",
+        "Chunk"
+      ],
+      "properties": {
+        "index": 23,
+        "name": "Evening Entertainment",
+        "content": "### Evening Entertainment  \nLive acoustic performances, storytelling by firelight, and local cultural showcases.  \n---",
+        "section": "Activities & Entertainment > Evening Entertainment",
+        "heading_level": 2,
+        "part_index": 1,
+        "part_count": 1,
+        "source": "https://federicab03.github.io/ARGO_Usecase/pages/music.html"
+      }
+    },
+    {
+      "id": "chunk:24",
+      "labels": [
+        "Section",
+        "Chunk"
+      ],
+      "properties": {
+        "index": 24,
+        "name": "There and Back Again",
+        "content": "# There and Back Again  \nMulti-day retreat  \nA fully customizable 3-day corporate retreat template showcasing our approach.  \nEvery itinerary is tailored to your group's objectives. This example shows how we structure time for team connection, skill-building, and celebration.  \n**There and Back Again**  \nEvery step of your journey is carefully mapped. From arrival to departure, we orchestrate each moment to deepen connection and inspire transformation.  \nDay 1, 14:00  \nArrivals and welcome reception  \nDay 1, 18:00  \nDinner with local cuisine and wine pairing  \nDay 2, 08:00  \nGuided mountain hike or forest walk  \nDay 2, 12:00  \nLunch with guest speaker or facilitated workshop  \nDay 2, 16:00  \nBreakout sessions and activities by group  \nDay 2, 19:30  \nEvening entertainment and storytelling session  \nDay 3, 09:00  \nFinal workshop or strategic planning session  \nDay 3, 12:00  \nClosing celebration and farewell lunch  \nDay 3, 14:00  \nDepartures  \n---",
+        "section": "There and Back Again",
+        "heading_level": 1,
+        "part_index": 1,
+        "part_count": 1,
+        "source": "https://federicab03.github.io/ARGO_Usecase/pages/schedule.html"
+      }
+    },
+    {
+      "id": "chunk:25",
+      "labels": [
+        "Section",
+        "Chunk"
+      ],
+      "properties": {
+        "index": 25,
+        "name": "Our Venues",
+        "content": "# Our Venues  \nCurated Alpine Locations  \nTwo distinct venues, each with unique character, capacity, and capabilities.  \nWe've carefully selected two properties that balance luxury, accessibility, and authentic alpine character. Both offer full accommodation, extensive facilities, and year-round availability.  \n**Our Venues**  \nDiscover two distinctly magical spaces, each commanding its own presence in the mountains. Both are sanctuaries for meaningful gathering.  \nVenue option",
+        "section": "Our Venues",
+        "heading_level": 1,
+        "part_index": 1,
+        "part_count": 1,
+        "source": "https://federicab03.github.io/ARGO_Usecase/pages/venue.html"
+      }
+    },
+    {
+      "id": "chunk:26",
+      "labels": [
+        "Section",
+        "Chunk"
+      ],
+      "properties": {
+        "index": 26,
+        "name": "Party Tree Hall and Grounds",
+        "content": "### Party Tree Hall and Grounds  \nA charming meadowside hall inspired by tales of fellowship and gathering. Nestled in rolling green fields, perfect for intimate celebrations where companionship and connection flourish.  \n* Capacity: 20\u201390 guests\n* 32 en-suite rooms\n* Full kitchen facilities\n* Indoor & outdoor spaces  \n[View details](../venues/partyfield.html)  \nVenue option",
+        "section": "Our Venues > Party Tree Hall and Grounds",
+        "heading_level": 2,
+        "part_index": 1,
+        "part_count": 1,
+        "source": "https://federicab03.github.io/ARGO_Usecase/pages/venue.html"
+      }
+    },
+    {
+      "id": "chunk:27",
+      "labels": [
+        "Section",
+        "Chunk"
+      ],
+      "properties": {
+        "index": 27,
+        "name": "The White Tower Upper Gallery",
+        "content": "### The White Tower Upper Gallery  \nPerched high upon dramatic heights, this noble stronghold commands panoramic vistas. A grand citadel of stone and light, designed for those who seek to gather their most important allies.  \n* Capacity: 40\u2013150 guests\n* 55 guest rooms\n* Grand halls & breakout rooms\n* Terrace & panoramic views  \n[View details](../venues/minastirith.html)  \n---",
+        "section": "Our Venues > The White Tower Upper Gallery",
+        "heading_level": 2,
+        "part_index": 1,
+        "part_count": 1,
+        "source": "https://federicab03.github.io/ARGO_Usecase/pages/venue.html"
+      }
+    },
+    {
+      "id": "chunk:28",
+      "labels": [
+        "Section",
+        "Chunk"
+      ],
+      "properties": {
+        "index": 28,
+        "name": "The White Tower Upper Gallery",
+        "content": "# The White Tower Upper Gallery  \nGrand Alpine Venue  \nA remarkable hilltop setting combining historic architecture, panoramic city views, and elevated terraces for memorable gatherings, formal events, and distinctive presentations.  \n**The White Tower Upper Gallery**  \nA fortress of hospitality above the city. Grand, dramatic, and framed by sweeping views, the White Tower offers an unforgettable setting for occasions that call for distinction.  \nPerched high above the city with commanding panoramic views, The White Tower Upper Gallery offers a truly distinctive backdrop for an Alpine evening. Its elevated terraces and eastern balcony provide natural sightlines across the city walls, making the setting particularly compelling for acoustic performances and outdoor moments. The venue's historic architecture creates an atmosphere of grandeur, while its multi-level layout brings a unique character to the flow of the evening. Guests should note that some areas are connected by a central spiral staircase and narrow internal corridors, and event logistics require coordination between levels.",
+        "section": "The White Tower Upper Gallery",
+        "heading_level": 1,
+        "part_index": 1,
+        "part_count": 1,
+        "source": "https://federicab03.github.io/ARGO_Usecase/venues/minastirith.html"
+      }
+    },
+    {
+      "id": "chunk:29",
+      "labels": [
+        "Section",
+        "Chunk"
+      ],
+      "properties": {
+        "index": 29,
+        "name": "Facilities",
+        "content": "### Facilities  \n* Capacity: 40\u2013150 guests\n* 55 guest rooms (multiple configurations)\n* Elevator access to principal levels\n* Grand gallery and breakout spaces\n* Panoramic city and mountain views\n* Elevated terraces for receptions\n* Eastern balcony suited to acoustic performances\n* Multi-level catering and event setup\n* Historic architecture and distinctive interiors\n* Year-round operation  \n[Back to all venues](../pages/venue.html)  \n---",
+        "section": "The White Tower Upper Gallery > Facilities",
+        "heading_level": 2,
+        "part_index": 1,
+        "part_count": 1,
+        "source": "https://federicab03.github.io/ARGO_Usecase/venues/minastirith.html"
+      }
+    },
+    {
+      "id": "chunk:30",
+      "labels": [
+        "Section",
+        "Chunk"
+      ],
+      "properties": {
+        "index": 30,
+        "name": "Party Tree Hall and Grounds",
+        "content": "# Party Tree Hall and Grounds  \nIntimate Alpine Venue  \nA historic community gathering space in the heart of Michel Delving, combining rustic charm, open-air surroundings, and practical event facilities for relaxed, convivial celebrations.  \n**Party Tree Hall and Grounds**  \nWhere fellowship blooms beneath open skies. Warm, welcoming, and effortlessly convivial, the Party Tree Hall brings together shared tables, open meadows, and the spirit of the Shire.  \nNestled among the green of central Michel Delving, the Party Tree Hall offers a welcoming setting for an evening of food, music, and fellowship. Its spacious ground-level reception area provides direct loading access for catering and music equipment, while the adjoining courtyard offers an open-air extension of the gathering with clear sightlines and easy guest circulation. Dedicated preparation and staging areas remain separate from attendee spaces, supporting smooth transitions throughout the evening.",
+        "section": "Party Tree Hall and Grounds",
+        "heading_level": 1,
+        "part_index": 1,
+        "part_count": 1,
+        "source": "https://federicab03.github.io/ARGO_Usecase/venues/partyfield.html"
+      }
+    },
+    {
+      "id": "chunk:31",
+      "labels": [
+        "Section",
+        "Chunk"
+      ],
+      "properties": {
+        "index": 31,
+        "name": "Facilities",
+        "content": "### Facilities  \n* Capacity: 20\u201390 guests\n* 32 en-suite bedrooms\n* Fully accessible ground-level layout\n* Direct loading access for event setup\n* Indoor hall and adjoining courtyard\n* Dedicated food preparation and staging areas\n* Clear emergency access routes\n* Hiking trails from the property\n* Available year-round  \n[Back to all venues](../pages/venue.html)",
+        "section": "Party Tree Hall and Grounds > Facilities",
+        "heading_level": 2,
+        "part_index": 1,
+        "part_count": 1,
+        "source": "https://federicab03.github.io/ARGO_Usecase/venues/partyfield.html"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "chunk:0",
+      "relation": "SECTION",
+      "target": "chunk:1",
+      "properties": {
+        "parent_section": "Immersive Alpine Gatherings",
+        "child_section": "Immersive Alpine Gatherings > Every gathering is uniquely yours"
+      }
+    },
+    {
+      "source": "chunk:10",
+      "relation": "SECTION",
+      "target": "chunk:11",
+      "properties": {
+        "parent_section": "Request a Proposal",
+        "child_section": "Request a Proposal > Wayfarer Retreat Planning"
+      }
+    },
+    {
+      "source": "chunk:10",
+      "relation": "SECTION",
+      "target": "chunk:12",
+      "properties": {
+        "parent_section": "Request a Proposal",
+        "child_section": "Request a Proposal > hello@wayfarer-retreats.alpine"
+      }
+    },
+    {
+      "source": "chunk:10",
+      "relation": "SECTION",
+      "target": "chunk:13",
+      "properties": {
+        "parent_section": "Request a Proposal",
+        "child_section": "Request a Proposal > +39 258 256 1209"
+      }
+    },
+    {
+      "source": "chunk:20",
+      "relation": "SECTION",
+      "target": "chunk:21",
+      "properties": {
+        "parent_section": "Activities & Entertainment",
+        "child_section": "Activities & Entertainment > Guided Experiences"
+      }
+    },
+    {
+      "source": "chunk:20",
+      "relation": "SECTION",
+      "target": "chunk:22",
+      "properties": {
+        "parent_section": "Activities & Entertainment",
+        "child_section": "Activities & Entertainment > Workshops & Talks"
+      }
+    },
+    {
+      "source": "chunk:20",
+      "relation": "SECTION",
+      "target": "chunk:23",
+      "properties": {
+        "parent_section": "Activities & Entertainment",
+        "child_section": "Activities & Entertainment > Evening Entertainment"
+      }
+    },
+    {
+      "source": "chunk:25",
+      "relation": "SECTION",
+      "target": "chunk:26",
+      "properties": {
+        "parent_section": "Our Venues",
+        "child_section": "Our Venues > Party Tree Hall and Grounds"
+      }
+    },
+    {
+      "source": "chunk:25",
+      "relation": "SECTION",
+      "target": "chunk:27",
+      "properties": {
+        "parent_section": "Our Venues",
+        "child_section": "Our Venues > The White Tower Upper Gallery"
+      }
+    },
+    {
+      "source": "chunk:28",
+      "relation": "SECTION",
+      "target": "chunk:29",
+      "properties": {
+        "parent_section": "The White Tower Upper Gallery",
+        "child_section": "The White Tower Upper Gallery > Facilities"
+      }
+    },
+    {
+      "source": "chunk:30",
+      "relation": "SECTION",
+      "target": "chunk:31",
+      "properties": {
+        "parent_section": "Party Tree Hall and Grounds",
+        "child_section": "Party Tree Hall and Grounds > Facilities"
+      }
+    },
+    {
+      "source": "chunk:0",
+      "relation": "SUBSECTION",
+      "target": "chunk:2",
+      "properties": {
+        "parent_section": "Immersive Alpine Gatherings",
+        "child_section": "Immersive Alpine Gatherings > Tailored experiences for every occasion > Catering & Dining"
+      }
+    },
+    {
+      "source": "chunk:0",
+      "relation": "SUBSECTION",
+      "target": "chunk:3",
+      "properties": {
+        "parent_section": "Immersive Alpine Gatherings",
+        "child_section": "Immersive Alpine Gatherings > Tailored experiences for every occasion > Activities & Entertainment"
+      }
+    },
+    {
+      "source": "chunk:0",
+      "relation": "SUBSECTION",
+      "target": "chunk:4",
+      "properties": {
+        "parent_section": "Immersive Alpine Gatherings",
+        "child_section": "Immersive Alpine Gatherings > Tailored experiences for every occasion > Venue & Logistics"
+      }
+    },
+    {
+      "source": "chunk:16",
+      "relation": "SUBSECTION",
+      "target": "chunk:17",
+      "properties": {
+        "parent_section": "Catering & Dining",
+        "child_section": "Catering & Dining > We accommodate all preferences > Vegetarian & Vegan"
+      }
+    },
+    {
+      "source": "chunk:16",
+      "relation": "SUBSECTION",
+      "target": "chunk:18",
+      "properties": {
+        "parent_section": "Catering & Dining",
+        "child_section": "Catering & Dining > We accommodate all preferences > Allergies & Intolerances"
+      }
+    },
+    {
+      "source": "chunk:16",
+      "relation": "SUBSECTION",
+      "target": "chunk:19",
+      "properties": {
+        "parent_section": "Catering & Dining",
+        "child_section": "Catering & Dining > We accommodate all preferences > Cultural & Religious"
+      }
+    },
+    {
+      "source": "chunk:0",
+      "relation": "NEXT_PART",
+      "target": "chunk:5",
+      "properties": {
+        "section": "Immersive Alpine Gatherings"
+      }
+    },
+    {
+      "source": "chunk:1",
+      "relation": "NEXT_PART",
+      "target": "chunk:6",
+      "properties": {
+        "section": "Immersive Alpine Gatherings > Every gathering is uniquely yours"
+      }
+    },
+    {
+      "source": "chunk:2",
+      "relation": "NEXT_PART",
+      "target": "chunk:7",
+      "properties": {
+        "section": "Immersive Alpine Gatherings > Tailored experiences for every occasion > Catering & Dining"
+      }
+    },
+    {
+      "source": "chunk:3",
+      "relation": "NEXT_PART",
+      "target": "chunk:8",
+      "properties": {
+        "section": "Immersive Alpine Gatherings > Tailored experiences for every occasion > Activities & Entertainment"
+      }
+    },
+    {
+      "source": "chunk:4",
+      "relation": "NEXT_PART",
+      "target": "chunk:9",
+      "properties": {
+        "section": "Immersive Alpine Gatherings > Tailored experiences for every occasion > Venue & Logistics"
+      }
+    },
+    {
+      "source": "chunk:14",
+      "relation": "NEXT_PART",
+      "target": "chunk:15",
+      "properties": {
+        "section": "Frequently Asked Questions"
+      }
+    },
+    {
+      "source": "chunk:3",
+      "relation": "SECTION",
+      "target": "chunk:21",
+      "properties": {
+        "evidence": "Referenced section topic in source chunk",
+        "matched_terms": "experience, guided"
+      }
+    },
+    {
+      "source": "chunk:8",
+      "relation": "SECTION",
+      "target": "chunk:21",
+      "properties": {
+        "evidence": "Referenced section topic in source chunk",
+        "matched_terms": "experience, guided"
+      }
+    },
+    {
+      "source": "chunk:14",
+      "relation": "SUBSECTION",
+      "target": "chunk:4",
+      "properties": {
+        "evidence": "Referenced section topic in source chunk",
+        "matched_terms": "logistic, venue"
+      }
+    },
+    {
+      "source": "chunk:14",
+      "relation": "SECTION",
+      "target": "chunk:11",
+      "properties": {
+        "evidence": "Referenced section topic in source chunk",
+        "matched_terms": "planning, retreat, wayfarer"
+      }
+    },
+    {
+      "source": "chunk:14",
+      "relation": "SECTION",
+      "target": "chunk:21",
+      "properties": {
+        "evidence": "Referenced section topic in source chunk",
+        "matched_terms": "experience, guided"
+      }
+    },
+    {
+      "source": "chunk:15",
+      "relation": "SUBSECTION",
+      "target": "chunk:4",
+      "properties": {
+        "evidence": "Referenced section topic in source chunk",
+        "matched_terms": "logistic, venue"
+      }
+    },
+    {
+      "source": "chunk:16",
+      "relation": "SUBSECTION",
+      "target": "chunk:2",
+      "properties": {
+        "evidence": "Referenced section topic in source chunk",
+        "matched_terms": "catering, dining"
+      }
+    },
+    {
+      "source": "chunk:20",
+      "relation": "SUBSECTION",
+      "target": "chunk:3",
+      "properties": {
+        "evidence": "Referenced section topic in source chunk",
+        "matched_terms": "activitie, entertainment"
+      }
+    },
+    {
+      "source": "chunk:20",
+      "relation": "SECTION",
+      "target": "chunk:21",
+      "properties": {
+        "evidence": "Referenced section topic in source chunk",
+        "matched_terms": "experience, guided"
+      }
+    },
+    {
+      "source": "chunk:24",
+      "relation": "SUBSECTION",
+      "target": "chunk:3",
+      "properties": {
+        "evidence": "Referenced section topic in source chunk",
+        "matched_terms": "activitie, entertainment"
+      }
+    },
+    {
+      "source": "chunk:24",
+      "relation": "SECTION",
+      "target": "chunk:23",
+      "properties": {
+        "evidence": "Referenced section topic in source chunk",
+        "matched_terms": "entertainment, evening"
+      }
+    },
+    {
+      "source": "chunk:25",
+      "relation": "SECTION",
+      "target": "chunk:29",
+      "properties": {
+        "evidence": "Referenced section topic in source chunk",
+        "matched_terms": "facilitie"
+      }
+    },
+    {
+      "source": "chunk:25",
+      "relation": "SECTION",
+      "target": "chunk:31",
+      "properties": {
+        "evidence": "Referenced section topic in source chunk",
+        "matched_terms": "facilitie"
+      }
+    },
+    {
+      "source": "chunk:26",
+      "relation": "SECTION",
+      "target": "chunk:29",
+      "properties": {
+        "evidence": "Referenced section topic in source chunk",
+        "matched_terms": "facilitie"
+      }
+    },
+    {
+      "source": "chunk:26",
+      "relation": "SECTION",
+      "target": "chunk:31",
+      "properties": {
+        "evidence": "Referenced section topic in source chunk",
+        "matched_terms": "facilitie"
+      }
+    },
+    {
+      "source": "chunk:28",
+      "relation": "SUBSECTION",
+      "target": "chunk:4",
+      "properties": {
+        "evidence": "Referenced section topic in source chunk",
+        "matched_terms": "logistic, venue"
+      }
+    },
+    {
+      "source": "chunk:28",
+      "relation": "SECTION",
+      "target": "chunk:27",
+      "properties": {
+        "evidence": "Referenced section topic in source chunk",
+        "matched_terms": "gallery, tower, upper, white"
+      }
+    },
+    {
+      "source": "chunk:29",
+      "relation": "SECTION",
+      "target": "chunk:31",
+      "properties": {
+        "evidence": "Referenced section topic in source chunk",
+        "matched_terms": "facilitie"
+      }
+    },
+    {
+      "source": "chunk:30",
+      "relation": "SECTION",
+      "target": "chunk:26",
+      "properties": {
+        "evidence": "Referenced section topic in source chunk",
+        "matched_terms": "ground, party"
+      }
+    },
+    {
+      "source": "chunk:30",
+      "relation": "SECTION",
+      "target": "chunk:29",
+      "properties": {
+        "evidence": "Referenced section topic in source chunk",
+        "matched_terms": "facilitie"
+      }
+    },
+    {
+      "source": "chunk:30",
+      "relation": "SECTION",
+      "target": "chunk:31",
+      "properties": {
+        "evidence": "Referenced section topic in source chunk",
+        "matched_terms": "facilitie"
+      }
+    },
+    {
+      "source": "chunk:31",
+      "relation": "SECTION",
+      "target": "chunk:29",
+      "properties": {
+        "evidence": "Referenced section topic in source chunk",
+        "matched_terms": "facilitie"
+      }
+    },
+    {
+      "source": "chunk:0",
+      "relation": "SECTION",
+      "target": "chunk:24",
+      "properties": {
+        "review_evidence": "chunk:0 contains the explicit link [View Sample Itinerary](pages/schedule.html), and chunk:24 is the schedule.html page titled \u201cThere and Back Again.\u201d",
+        "review_confidence_percent": 95
+      }
+    },
+    {
+      "source": "chunk:0",
+      "relation": "SECTION",
+      "target": "chunk:25",
+      "properties": {
+        "review_evidence": "chunk:0 contains the explicit link [Explore Venues](pages/venue.html), and chunk:25 is the venue.html page titled \u201cOur Venues.\u201d",
+        "review_confidence_percent": 95
+      }
+    },
+    {
+      "source": "chunk:2",
+      "relation": "SUBSECTION",
+      "target": "chunk:16",
+      "properties": {
+        "review_evidence": "chunk:2 is the index card \u201cCatering & Dining\u201d and contains [Open page](pages/food.html); chunk:16 is the food.html page titled \u201cCatering & Dining.\u201d",
+        "review_confidence_percent": 95
+      }
+    },
+    {
+      "source": "chunk:3",
+      "relation": "SUBSECTION",
+      "target": "chunk:20",
+      "properties": {
+        "review_evidence": "chunk:3 is the index card \u201cActivities & Entertainment\u201d and contains [Open page](pages/music.html); chunk:20 is the music.html page titled \u201cActivities & Entertainment.\u201d",
+        "review_confidence_percent": 95
+      }
+    },
+    {
+      "source": "chunk:4",
+      "relation": "SUBSECTION",
+      "target": "chunk:25",
+      "properties": {
+        "review_evidence": "chunk:4 is the index card \u201cVenue & Logistics\u201d and contains [Open page](pages/venue.html); chunk:25 is the venue.html page titled \u201cOur Venues.\u201d",
+        "review_confidence_percent": 95
+      }
+    },
+    {
+      "source": "chunk:5",
+      "relation": "SECTION",
+      "target": "chunk:24",
+      "properties": {
+        "review_evidence": "chunk:5 is the second part of the same index overview and contains the same explicit link [View Sample Itinerary](pages/schedule.html) to chunk:24.",
+        "review_confidence_percent": 88
+      }
+    },
+    {
+      "source": "chunk:5",
+      "relation": "SECTION",
+      "target": "chunk:25",
+      "properties": {
+        "review_evidence": "chunk:5 is the second part of the same index overview and contains the same explicit link [Explore Venues](pages/venue.html) to chunk:25.",
+        "review_confidence_percent": 88
+      }
+    },
+    {
+      "source": "chunk:7",
+      "relation": "SUBSECTION",
+      "target": "chunk:16",
+      "properties": {
+        "review_evidence": "chunk:7 is the second part of the \u201cCatering & Dining\u201d card and contains the same explicit link [Open page](pages/food.html) to chunk:16.",
+        "review_confidence_percent": 88
+      }
+    },
+    {
+      "source": "chunk:8",
+      "relation": "SUBSECTION",
+      "target": "chunk:20",
+      "properties": {
+        "review_evidence": "chunk:8 is the second part of the \u201cActivities & Entertainment\u201d card and contains the same explicit link [Open page](pages/music.html) to chunk:20.",
+        "review_confidence_percent": 88
+      }
+    },
+    {
+      "source": "chunk:9",
+      "relation": "SUBSECTION",
+      "target": "chunk:25",
+      "properties": {
+        "review_evidence": "chunk:9 is the second part of the \u201cVenue & Logistics\u201d card and contains the same explicit link [Open page](pages/venue.html) to chunk:25.",
+        "review_confidence_percent": 88
+      }
+    },
+    {
+      "source": "chunk:25",
+      "relation": "SECTION",
+      "target": "chunk:28",
+      "properties": {
+        "review_evidence": "chunk:25 is the \u201cOur Venues\u201d collection page, and chunk:28 is the detail page for \u201cThe White Tower Upper Gallery,\u201d one of the two venues introduced there.",
+        "review_confidence_percent": 78
+      }
+    },
+    {
+      "source": "chunk:25",
+      "relation": "SECTION",
+      "target": "chunk:30",
+      "properties": {
+        "review_evidence": "chunk:25 is the \u201cOur Venues\u201d collection page, and chunk:30 is the detail page for \u201cParty Tree Hall and Grounds,\u201d one of the two venues introduced there.",
+        "review_confidence_percent": 78
+      }
+    },
+    {
+      "source": "chunk:26",
+      "relation": "SUBSECTION",
+      "target": "chunk:30",
+      "properties": {
+        "review_evidence": "chunk:26 is the venue card for \u201cParty Tree Hall and Grounds\u201d and contains [View details](../venues/partyfield.html); chunk:30 is the partyfield.html detail page for the same venue.",
+        "review_confidence_percent": 95
+      }
+    },
+    {
+      "source": "chunk:27",
+      "relation": "SUBSECTION",
+      "target": "chunk:28",
+      "properties": {
+        "review_evidence": "chunk:27 is the venue card for \u201cThe White Tower Upper Gallery\u201d and contains [View details](../venues/minastirith.html); chunk:28 is the minastirith.html detail page for the same venue.",
+        "review_confidence_percent": 95
+      }
+    }
+  ]
+}

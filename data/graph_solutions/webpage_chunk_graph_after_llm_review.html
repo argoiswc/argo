@@ -1,0 +1,349 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script>function neighbourhoodHighlight(params) {
+  // console.log("in nieghbourhoodhighlight");
+  allNodes = nodes.get({ returnType: "Object" });
+  // originalNodes = JSON.parse(JSON.stringify(allNodes));
+  // if something is selected:
+  if (params.nodes.length > 0) {
+    highlightActive = true;
+    var i, j;
+    var selectedNode = params.nodes[0];
+    var degrees = 2;
+
+    // mark all nodes as hard to read.
+    for (let nodeId in allNodes) {
+      // nodeColors[nodeId] = allNodes[nodeId].color;
+      allNodes[nodeId].color = "rgba(200,200,200,0.5)";
+      if (allNodes[nodeId].hiddenLabel === undefined) {
+        allNodes[nodeId].hiddenLabel = allNodes[nodeId].label;
+        allNodes[nodeId].label = undefined;
+      }
+    }
+    var connectedNodes = network.getConnectedNodes(selectedNode);
+    var allConnectedNodes = [];
+
+    // get the second degree nodes
+    for (i = 1; i < degrees; i++) {
+      for (j = 0; j < connectedNodes.length; j++) {
+        allConnectedNodes = allConnectedNodes.concat(
+          network.getConnectedNodes(connectedNodes[j])
+        );
+      }
+    }
+
+    // all second degree nodes get a different color and their label back
+    for (i = 0; i < allConnectedNodes.length; i++) {
+      // allNodes[allConnectedNodes[i]].color = "pink";
+      allNodes[allConnectedNodes[i]].color = "rgba(150,150,150,0.75)";
+      if (allNodes[allConnectedNodes[i]].hiddenLabel !== undefined) {
+        allNodes[allConnectedNodes[i]].label =
+          allNodes[allConnectedNodes[i]].hiddenLabel;
+        allNodes[allConnectedNodes[i]].hiddenLabel = undefined;
+      }
+    }
+
+    // all first degree nodes get their own color and their label back
+    for (i = 0; i < connectedNodes.length; i++) {
+      // allNodes[connectedNodes[i]].color = undefined;
+      allNodes[connectedNodes[i]].color = nodeColors[connectedNodes[i]];
+      if (allNodes[connectedNodes[i]].hiddenLabel !== undefined) {
+        allNodes[connectedNodes[i]].label =
+          allNodes[connectedNodes[i]].hiddenLabel;
+        allNodes[connectedNodes[i]].hiddenLabel = undefined;
+      }
+    }
+
+    // the main node gets its own color and its label back.
+    // allNodes[selectedNode].color = undefined;
+    allNodes[selectedNode].color = nodeColors[selectedNode];
+    if (allNodes[selectedNode].hiddenLabel !== undefined) {
+      allNodes[selectedNode].label = allNodes[selectedNode].hiddenLabel;
+      allNodes[selectedNode].hiddenLabel = undefined;
+    }
+  } else if (highlightActive === true) {
+    // console.log("highlightActive was true");
+    // reset all nodes
+    for (let nodeId in allNodes) {
+      // allNodes[nodeId].color = "purple";
+      allNodes[nodeId].color = nodeColors[nodeId];
+      // delete allNodes[nodeId].color;
+      if (allNodes[nodeId].hiddenLabel !== undefined) {
+        allNodes[nodeId].label = allNodes[nodeId].hiddenLabel;
+        allNodes[nodeId].hiddenLabel = undefined;
+      }
+    }
+    highlightActive = false;
+  }
+
+  // transform the object into an array
+  var updateArray = [];
+  if (params.nodes.length > 0) {
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        // console.log(allNodes[nodeId]);
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  } else {
+    // console.log("Nothing was selected");
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        // console.log(allNodes[nodeId]);
+        // allNodes[nodeId].color = {};
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  }
+}
+
+function filterHighlight(params) {
+  allNodes = nodes.get({ returnType: "Object" });
+  // if something is selected:
+  if (params.nodes.length > 0) {
+    filterActive = true;
+    let selectedNodes = params.nodes;
+
+    // hiding all nodes and saving the label
+    for (let nodeId in allNodes) {
+      allNodes[nodeId].hidden = true;
+      if (allNodes[nodeId].savedLabel === undefined) {
+        allNodes[nodeId].savedLabel = allNodes[nodeId].label;
+        allNodes[nodeId].label = undefined;
+      }
+    }
+
+    for (let i=0; i < selectedNodes.length; i++) {
+      allNodes[selectedNodes[i]].hidden = false;
+      if (allNodes[selectedNodes[i]].savedLabel !== undefined) {
+        allNodes[selectedNodes[i]].label = allNodes[selectedNodes[i]].savedLabel;
+        allNodes[selectedNodes[i]].savedLabel = undefined;
+      }
+    }
+
+  } else if (filterActive === true) {
+    // reset all nodes
+    for (let nodeId in allNodes) {
+      allNodes[nodeId].hidden = false;
+      if (allNodes[nodeId].savedLabel !== undefined) {
+        allNodes[nodeId].label = allNodes[nodeId].savedLabel;
+        allNodes[nodeId].savedLabel = undefined;
+      }
+    }
+    filterActive = false;
+  }
+
+  // transform the object into an array
+  var updateArray = [];
+  if (params.nodes.length > 0) {
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  } else {
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  }
+}
+
+function selectNode(nodes) {
+  network.selectNodes(nodes);
+  neighbourhoodHighlight({ nodes: nodes });
+  return nodes;
+}
+
+function selectNodes(nodes) {
+  network.selectNodes(nodes);
+  filterHighlight({nodes: nodes});
+  return nodes;
+}
+
+function highlightFilter(filter) {
+  let selectedNodes = []
+  let selectedProp = filter['property']
+  if (filter['item'] === 'node') {
+    let allNodes = nodes.get({ returnType: "Object" });
+    for (let nodeId in allNodes) {
+      if (allNodes[nodeId][selectedProp] && filter['value'].includes((allNodes[nodeId][selectedProp]).toString())) {
+        selectedNodes.push(nodeId)
+      }
+    }
+  }
+  else if (filter['item'] === 'edge'){
+    let allEdges = edges.get({returnType: 'object'});
+    // check if the selected property exists for selected edge and select the nodes connected to the edge
+    for (let edge in allEdges) {
+      if (allEdges[edge][selectedProp] && filter['value'].includes((allEdges[edge][selectedProp]).toString())) {
+        selectedNodes.push(allEdges[edge]['from'])
+        selectedNodes.push(allEdges[edge]['to'])
+      }
+    }
+  }
+  selectNodes(selectedNodes)
+}</script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+            
+            
+            
+            
+            
+
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 760px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#2563eb", "font": {"color": "#111827"}, "id": "chunk:0", "label": "Immersive Alpine Gatherings", "shape": "dot", "title": "index: 0\u003cbr\u003ename: Immersive Alpine Gatherings\u003cbr\u003econtent: # Immersive Alpine Gatherings  \nTimeless hospitality, modern excellence  \nWayfarer creates unforgettable corporate retreats, executive offsites, and private celebrations in the Alps. We handle every detail\u2014from venue selection to multi-day programming.  \n[View Sample Itinerary](pages/schedule.html)\n[Explore Venues](pages/venue.html)  \nCorporate retreatsExecutive offsitesPrivate celebrations  \nOur Approach\n**Immersive Retreats**  \nCarefully curated experiences that blend mountain hospitality, mea\u003cbr\u003esection: Immersive Alpine Gatherings\u003cbr\u003eheading_level: 1\u003cbr\u003epart_index: 1\u003cbr\u003epart_count: 2\u003cbr\u003esource: https://federicab03.github.io/ARGO_Usecase/index.html"}, {"color": "#2563eb", "font": {"color": "#111827"}, "id": "chunk:1", "label": "Every gathering is uniquely yours", "shape": "dot", "title": "index: 1\u003cbr\u003ename: Every gathering is uniquely yours\u003cbr\u003econtent: ## Every gathering is uniquely yours  \nWe craft experiences tailored to your group\u0027s goals and culture. Whether you\u0027re aligning teams, celebrating milestones, or exploring strategic futures, we design the retreat to fit your vision.  \nOur curated venues, professional catering, and diverse activity offerings ensure each moment resonates with authenticity and purpose.  \n[How we work](pages/faq.html)  \nOur Services\u003cbr\u003esection: Immersive Alpine Gatherings \u003e Every gathering is uniquely yours\u003cbr\u003eheading_level: 2\u003cbr\u003epart_index: 1\u003cbr\u003epart_count: 2\u003cbr\u003esource: https://federicab03.github.io/ARGO_Usecase/index.html"}, {"color": "#16a34a", "font": {"color": "#111827"}, "id": "chunk:2", "label": "Catering \u0026 Dining", "shape": "dot", "title": "index: 2\u003cbr\u003ename: Catering \u0026 Dining\u003cbr\u003econtent: ## Tailored experiences for every occasion  \n### Catering \u0026 Dining  \nLocal alpine cuisine, dietary flexibility, and intimate dining formats designed to foster connection.  \n[Open page](pages/food.html)\u003cbr\u003esection: Immersive Alpine Gatherings \u003e Tailored experiences for every occasion \u003e Catering \u0026 Dining\u003cbr\u003eheading_level: 3\u003cbr\u003epart_index: 1\u003cbr\u003epart_count: 2\u003cbr\u003esource: https://federicab03.github.io/ARGO_Usecase/index.html"}, {"color": "#16a34a", "font": {"color": "#111827"}, "id": "chunk:3", "label": "Activities \u0026 Entertainment", "shape": "dot", "title": "index: 3\u003cbr\u003ename: Activities \u0026 Entertainment\u003cbr\u003econtent: ### Activities \u0026 Entertainment  \nGuided hikes, storytelling sessions, workshops, live performances, and seasonal experiences.  \n[Open page](pages/music.html)\u003cbr\u003esection: Immersive Alpine Gatherings \u003e Tailored experiences for every occasion \u003e Activities \u0026 Entertainment\u003cbr\u003eheading_level: 3\u003cbr\u003epart_index: 1\u003cbr\u003epart_count: 2\u003cbr\u003esource: https://federicab03.github.io/ARGO_Usecase/index.html"}, {"color": "#16a34a", "font": {"color": "#111827"}, "id": "chunk:4", "label": "Venue \u0026 Logistics", "shape": "dot", "title": "index: 4\u003cbr\u003ename: Venue \u0026 Logistics\u003cbr\u003econtent: ### Venue \u0026 Logistics  \nTwo distinct Alpine venues with full accommodation, weather backup, and technical capabilities.  \n[Open page](pages/venue.html)  \n---\u003cbr\u003esection: Immersive Alpine Gatherings \u003e Tailored experiences for every occasion \u003e Venue \u0026 Logistics\u003cbr\u003eheading_level: 3\u003cbr\u003epart_index: 1\u003cbr\u003epart_count: 2\u003cbr\u003esource: https://federicab03.github.io/ARGO_Usecase/index.html"}, {"color": "#f97316", "font": {"color": "#111827"}, "id": "chunk:5", "label": "Immersive Alpine Gatherings \u2014 Part 2", "shape": "dot", "title": "index: 5\u003cbr\u003ename: Immersive Alpine Gatherings \u2014 Part 2\u003cbr\u003econtent: # Immersive Alpine Gatherings  \nTimeless hospitality, modern excellence  \nWayfarer creates unforgettable corporate retreats, executive offsites, and private celebrations in the Alps. We handle every detail\u2014from venue selection to multi-day programming.  \n[View Sample Itinerary](pages/schedule.html)\n[Explore Venues](pages/venue.html)  \nCorporate retreatsExecutive offsitesPrivate celebrations  \nOur Approach\n**Immersive Retreats**  \nCarefully curated experiences that blend mountain hospitality, mea\u003cbr\u003esection: Immersive Alpine Gatherings\u003cbr\u003eheading_level: 1\u003cbr\u003epart_index: 2\u003cbr\u003epart_count: 2\u003cbr\u003esource: https://federicab03.github.io/ARGO_Usecase/index.html"}, {"color": "#f97316", "font": {"color": "#111827"}, "id": "chunk:6", "label": "Every gathering is uniquely yours \u2014 Part 2", "shape": "dot", "title": "index: 6\u003cbr\u003ename: Every gathering is uniquely yours \u2014 Part 2\u003cbr\u003econtent: ## Every gathering is uniquely yours  \nWe craft experiences tailored to your group\u0027s goals and culture. Whether you\u0027re aligning teams, celebrating milestones, or exploring strategic futures, we design the retreat to fit your vision.  \nOur curated venues, professional catering, and diverse activity offerings ensure each moment resonates with authenticity and purpose.  \n[How we work](pages/faq.html)  \nOur Services\u003cbr\u003esection: Immersive Alpine Gatherings \u003e Every gathering is uniquely yours\u003cbr\u003eheading_level: 2\u003cbr\u003epart_index: 2\u003cbr\u003epart_count: 2\u003cbr\u003esource: https://federicab03.github.io/ARGO_Usecase/index.html"}, {"color": "#f97316", "font": {"color": "#111827"}, "id": "chunk:7", "label": "Catering \u0026 Dining \u2014 Part 2", "shape": "dot", "title": "index: 7\u003cbr\u003ename: Catering \u0026 Dining \u2014 Part 2\u003cbr\u003econtent: ## Tailored experiences for every occasion  \n### Catering \u0026 Dining  \nLocal alpine cuisine, dietary flexibility, and intimate dining formats designed to foster connection.  \n[Open page](pages/food.html)\u003cbr\u003esection: Immersive Alpine Gatherings \u003e Tailored experiences for every occasion \u003e Catering \u0026 Dining\u003cbr\u003eheading_level: 3\u003cbr\u003epart_index: 2\u003cbr\u003epart_count: 2\u003cbr\u003esource: https://federicab03.github.io/ARGO_Usecase/index.html"}, {"color": "#f97316", "font": {"color": "#111827"}, "id": "chunk:8", "label": "Activities \u0026 Entertainment \u2014 Part 2", "shape": "dot", "title": "index: 8\u003cbr\u003ename: Activities \u0026 Entertainment \u2014 Part 2\u003cbr\u003econtent: ### Activities \u0026 Entertainment  \nGuided hikes, storytelling sessions, workshops, live performances, and seasonal experiences.  \n[Open page](pages/music.html)\u003cbr\u003esection: Immersive Alpine Gatherings \u003e Tailored experiences for every occasion \u003e Activities \u0026 Entertainment\u003cbr\u003eheading_level: 3\u003cbr\u003epart_index: 2\u003cbr\u003epart_count: 2\u003cbr\u003esource: https://federicab03.github.io/ARGO_Usecase/index.html"}, {"color": "#f97316", "font": {"color": "#111827"}, "id": "chunk:9", "label": "Venue \u0026 Logistics \u2014 Part 2", "shape": "dot", "title": "index: 9\u003cbr\u003ename: Venue \u0026 Logistics \u2014 Part 2\u003cbr\u003econtent: ### Venue \u0026 Logistics  \nTwo distinct Alpine venues with full accommodation, weather backup, and technical capabilities.  \n[Open page](pages/venue.html)  \n---\u003cbr\u003esection: Immersive Alpine Gatherings \u003e Tailored experiences for every occasion \u003e Venue \u0026 Logistics\u003cbr\u003eheading_level: 3\u003cbr\u003epart_index: 2\u003cbr\u003epart_count: 2\u003cbr\u003esource: https://federicab03.github.io/ARGO_Usecase/index.html"}, {"color": "#2563eb", "font": {"color": "#111827"}, "id": "chunk:10", "label": "Request a Proposal", "shape": "dot", "title": "index: 10\u003cbr\u003ename: Request a Proposal\u003cbr\u003econtent: # Request a Proposal  \nBegin Your Retreat  \nTell us about your vision. We\u0027ll craft a tailored proposal and guide you to the perfect Alpine gathering.  \nReady to bring your team together? Contact us to discuss group size, dates, objectives, and any special requirements. We\u0027ll build a customized experience from the ground up.  \n**Request a Proposal**  \nShare your vision with us. Together, we\u0027ll design the retreat that captures your dreams and exceeds your expectations.  \nProject Lead\u003cbr\u003esection: Request a Proposal\u003cbr\u003eheading_level: 1\u003cbr\u003epart_index: 1\u003cbr\u003epart_count: 1\u003cbr\u003esource: https://federicab03.github.io/ARGO_Usecase/pages/contact.html"}, {"color": "#2563eb", "font": {"color": "#111827"}, "id": "chunk:11", "label": "Wayfarer Retreat Planning", "shape": "dot", "title": "index: 11\u003cbr\u003ename: Wayfarer Retreat Planning\u003cbr\u003econtent: ### Wayfarer Retreat Planning  \nEmail\u003cbr\u003esection: Request a Proposal \u003e Wayfarer Retreat Planning\u003cbr\u003eheading_level: 2\u003cbr\u003epart_index: 1\u003cbr\u003epart_count: 1\u003cbr\u003esource: https://federicab03.github.io/ARGO_Usecase/pages/contact.html"}, {"color": "#2563eb", "font": {"color": "#111827"}, "id": "chunk:12", "label": "hello@wayfarer-retreats.alpine", "shape": "dot", "title": "index: 12\u003cbr\u003ename: hello@wayfarer-retreats.alpine\u003cbr\u003econtent: ### hello@wayfarer-retreats.alpine  \nPhone\u003cbr\u003esection: Request a Proposal \u003e hello@wayfarer-retreats.alpine\u003cbr\u003eheading_level: 2\u003cbr\u003epart_index: 1\u003cbr\u003epart_count: 1\u003cbr\u003esource: https://federicab03.github.io/ARGO_Usecase/pages/contact.html"}, {"color": "#2563eb", "font": {"color": "#111827"}, "id": "chunk:13", "label": "+39 258 256 1209", "shape": "dot", "title": "index: 13\u003cbr\u003ename: +39 258 256 1209\u003cbr\u003econtent: ### +39 258 256 1209  \n---\u003cbr\u003esection: Request a Proposal \u003e +39 258 256 1209\u003cbr\u003eheading_level: 2\u003cbr\u003epart_index: 1\u003cbr\u003epart_count: 1\u003cbr\u003esource: https://federicab03.github.io/ARGO_Usecase/pages/contact.html"}, {"color": "#2563eb", "font": {"color": "#111827"}, "id": "chunk:14", "label": "Frequently Asked Questions", "shape": "dot", "title": "index: 14\u003cbr\u003ename: Frequently Asked Questions\u003cbr\u003econtent: # Frequently Asked Questions  \nWorking with Wayfarer  \nEverything you need to know about planning a retreat with us.  \nHave questions about customization, logistics, pricing, or capabilities? We\u0027ve compiled answers to common inquiries.  \n**Frequently Asked Questions**  \nQuestions answered. Doubts resolved. Every detail thoughtfully explained so you can plan with confidence.  \nHow far in advance should we book?  \nWe recommend 3\u20136 months for corporate events to ensure venue and activity availabili\u003cbr\u003esection: Frequently Asked Questions\u003cbr\u003eheading_level: 1\u003cbr\u003epart_index: 1\u003cbr\u003epart_count: 2\u003cbr\u003esource: https://federicab03.github.io/ARGO_Usecase/pages/faq.html"}, {"color": "#f97316", "font": {"color": "#111827"}, "id": "chunk:15", "label": "Frequently Asked Questions \u2014 Part 2", "shape": "dot", "title": "index: 15\u003cbr\u003ename: Frequently Asked Questions \u2014 Part 2\u003cbr\u003econtent: Can we bring our own speakers or facilitators?  \nAbsolutely. We host client-led sessions, guest speakers, and custom programming alongside our own activity roster. All technical and logistical support is provided.  \nWhat is your cancellation policy?  \nDeposits are non-refundable but can be applied to future dates. For full terms, we discuss cancellation conditions during your proposal consultation.  \nDo you handle transportation?  \nWe arrange ground transportation between local airports and venu\u003cbr\u003esection: Frequently Asked Questions\u003cbr\u003eheading_level: 1\u003cbr\u003epart_index: 2\u003cbr\u003epart_count: 2\u003cbr\u003esource: https://federicab03.github.io/ARGO_Usecase/pages/faq.html"}, {"color": "#2563eb", "font": {"color": "#111827"}, "id": "chunk:16", "label": "Catering \u0026 Dining", "shape": "dot", "title": "index: 16\u003cbr\u003ename: Catering \u0026 Dining\u003cbr\u003econtent: # Catering \u0026 Dining  \nLocal \u0026 Seasonal  \nThoughtfully curated alpine cuisine designed to nourish and inspire connection.  \nWe believe great food brings people together. Our menus feature regional ingredients, artisanal producers, and flexible dining formats that suit corporate events, intimate celebrations, and large conferences.  \n**Catering \u0026 Dining**  \nTaste the essence of alpine hospitality. Our chefs craft menus that celebrate local traditions while nourishing your body and soul.  \nDietary \u003cbr\u003esection: Catering \u0026 Dining\u003cbr\u003eheading_level: 1\u003cbr\u003epart_index: 1\u003cbr\u003epart_count: 1\u003cbr\u003esource: https://federicab03.github.io/ARGO_Usecase/pages/food.html"}, {"color": "#16a34a", "font": {"color": "#111827"}, "id": "chunk:17", "label": "Vegetarian \u0026 Vegan", "shape": "dot", "title": "index: 17\u003cbr\u003ename: Vegetarian \u0026 Vegan\u003cbr\u003econtent: ## We accommodate all preferences  \n### Vegetarian \u0026 Vegan  \nFull menus available. We work with local farms for seasonal vegetables and plant-based specialties.\u003cbr\u003esection: Catering \u0026 Dining \u003e We accommodate all preferences \u003e Vegetarian \u0026 Vegan\u003cbr\u003eheading_level: 3\u003cbr\u003epart_index: 1\u003cbr\u003epart_count: 1\u003cbr\u003esource: https://federicab03.github.io/ARGO_Usecase/pages/food.html"}, {"color": "#16a34a", "font": {"color": "#111827"}, "id": "chunk:18", "label": "Allergies \u0026 Intolerances", "shape": "dot", "title": "index: 18\u003cbr\u003ename: Allergies \u0026 Intolerances\u003cbr\u003econtent: ### Allergies \u0026 Intolerances  \nGluten-free, dairy-free, nut-free options prepared separately with full traceability.\u003cbr\u003esection: Catering \u0026 Dining \u003e We accommodate all preferences \u003e Allergies \u0026 Intolerances\u003cbr\u003eheading_level: 3\u003cbr\u003epart_index: 1\u003cbr\u003epart_count: 1\u003cbr\u003esource: https://federicab03.github.io/ARGO_Usecase/pages/food.html"}, {"color": "#16a34a", "font": {"color": "#111827"}, "id": "chunk:19", "label": "Cultural \u0026 Religious", "shape": "dot", "title": "index: 19\u003cbr\u003ename: Cultural \u0026 Religious\u003cbr\u003econtent: ### Cultural \u0026 Religious  \nHalal, kosher, and other dietary requirements accommodated with advance notice.  \n[More questions? See FAQs](../pages/faq.html)  \n---\u003cbr\u003esection: Catering \u0026 Dining \u003e We accommodate all preferences \u003e Cultural \u0026 Religious\u003cbr\u003eheading_level: 3\u003cbr\u003epart_index: 1\u003cbr\u003epart_count: 1\u003cbr\u003esource: https://federicab03.github.io/ARGO_Usecase/pages/food.html"}, {"color": "#2563eb", "font": {"color": "#111827"}, "id": "chunk:20", "label": "Activities \u0026 Entertainment", "shape": "dot", "title": "index: 20\u003cbr\u003ename: Activities \u0026 Entertainment\u003cbr\u003econtent: # Activities \u0026 Entertainment  \nEngagement \u0026 Inspiration  \nDiverse experiences designed to energize teams and create lasting memories.  \nBeyond the boardroom. Our activity roster includes guided adventures, skill-building workshops, cultural experiences, and professional entertainment\u2014all customizable to your group\u0027s interests and schedule.  \n**Activities \u0026 Entertainment**  \nFrom sunrise hikes to fireside gatherings, each experience is designed to awaken your spirit and strengthen bonds that endu\u003cbr\u003esection: Activities \u0026 Entertainment\u003cbr\u003eheading_level: 1\u003cbr\u003epart_index: 1\u003cbr\u003epart_count: 1\u003cbr\u003esource: https://federicab03.github.io/ARGO_Usecase/pages/music.html"}, {"color": "#2563eb", "font": {"color": "#111827"}, "id": "chunk:21", "label": "Guided Experiences", "shape": "dot", "title": "index: 21\u003cbr\u003ename: Guided Experiences\u003cbr\u003econtent: ### Guided Experiences  \nMountain hikes, forest walks, or photography expeditions led by local experts.\u003cbr\u003esection: Activities \u0026 Entertainment \u003e Guided Experiences\u003cbr\u003eheading_level: 2\u003cbr\u003epart_index: 1\u003cbr\u003epart_count: 1\u003cbr\u003esource: https://federicab03.github.io/ARGO_Usecase/pages/music.html"}, {"color": "#2563eb", "font": {"color": "#111827"}, "id": "chunk:22", "label": "Workshops \u0026 Talks", "shape": "dot", "title": "index: 22\u003cbr\u003ename: Workshops \u0026 Talks\u003cbr\u003econtent: ### Workshops \u0026 Talks  \nLeadership sessions, creative skill-building, mindfulness practices, and curated guest speakers.\u003cbr\u003esection: Activities \u0026 Entertainment \u003e Workshops \u0026 Talks\u003cbr\u003eheading_level: 2\u003cbr\u003epart_index: 1\u003cbr\u003epart_count: 1\u003cbr\u003esource: https://federicab03.github.io/ARGO_Usecase/pages/music.html"}, {"color": "#2563eb", "font": {"color": "#111827"}, "id": "chunk:23", "label": "Evening Entertainment", "shape": "dot", "title": "index: 23\u003cbr\u003ename: Evening Entertainment\u003cbr\u003econtent: ### Evening Entertainment  \nLive acoustic performances, storytelling by firelight, and local cultural showcases.  \n---\u003cbr\u003esection: Activities \u0026 Entertainment \u003e Evening Entertainment\u003cbr\u003eheading_level: 2\u003cbr\u003epart_index: 1\u003cbr\u003epart_count: 1\u003cbr\u003esource: https://federicab03.github.io/ARGO_Usecase/pages/music.html"}, {"color": "#2563eb", "font": {"color": "#111827"}, "id": "chunk:24", "label": "There and Back Again", "shape": "dot", "title": "index: 24\u003cbr\u003ename: There and Back Again\u003cbr\u003econtent: # There and Back Again  \nMulti-day retreat  \nA fully customizable 3-day corporate retreat template showcasing our approach.  \nEvery itinerary is tailored to your group\u0027s objectives. This example shows how we structure time for team connection, skill-building, and celebration.  \n**There and Back Again**  \nEvery step of your journey is carefully mapped. From arrival to departure, we orchestrate each moment to deepen connection and inspire transformation.  \nDay 1, 14:00  \nArrivals and welcome recep\u003cbr\u003esection: There and Back Again\u003cbr\u003eheading_level: 1\u003cbr\u003epart_index: 1\u003cbr\u003epart_count: 1\u003cbr\u003esource: https://federicab03.github.io/ARGO_Usecase/pages/schedule.html"}, {"color": "#2563eb", "font": {"color": "#111827"}, "id": "chunk:25", "label": "Our Venues", "shape": "dot", "title": "index: 25\u003cbr\u003ename: Our Venues\u003cbr\u003econtent: # Our Venues  \nCurated Alpine Locations  \nTwo distinct venues, each with unique character, capacity, and capabilities.  \nWe\u0027ve carefully selected two properties that balance luxury, accessibility, and authentic alpine character. Both offer full accommodation, extensive facilities, and year-round availability.  \n**Our Venues**  \nDiscover two distinctly magical spaces, each commanding its own presence in the mountains. Both are sanctuaries for meaningful gathering.  \nVenue option\u003cbr\u003esection: Our Venues\u003cbr\u003eheading_level: 1\u003cbr\u003epart_index: 1\u003cbr\u003epart_count: 1\u003cbr\u003esource: https://federicab03.github.io/ARGO_Usecase/pages/venue.html"}, {"color": "#2563eb", "font": {"color": "#111827"}, "id": "chunk:26", "label": "Party Tree Hall and Grounds", "shape": "dot", "title": "index: 26\u003cbr\u003ename: Party Tree Hall and Grounds\u003cbr\u003econtent: ### Party Tree Hall and Grounds  \nA charming meadowside hall inspired by tales of fellowship and gathering. Nestled in rolling green fields, perfect for intimate celebrations where companionship and connection flourish.  \n* Capacity: 20\u201390 guests\n* 32 en-suite rooms\n* Full kitchen facilities\n* Indoor \u0026 outdoor spaces  \n[View details](../venues/partyfield.html)  \nVenue option\u003cbr\u003esection: Our Venues \u003e Party Tree Hall and Grounds\u003cbr\u003eheading_level: 2\u003cbr\u003epart_index: 1\u003cbr\u003epart_count: 1\u003cbr\u003esource: https://federicab03.github.io/ARGO_Usecase/pages/venue.html"}, {"color": "#2563eb", "font": {"color": "#111827"}, "id": "chunk:27", "label": "The White Tower Upper Gallery", "shape": "dot", "title": "index: 27\u003cbr\u003ename: The White Tower Upper Gallery\u003cbr\u003econtent: ### The White Tower Upper Gallery  \nPerched high upon dramatic heights, this noble stronghold commands panoramic vistas. A grand citadel of stone and light, designed for those who seek to gather their most important allies.  \n* Capacity: 40\u2013150 guests\n* 55 guest rooms\n* Grand halls \u0026 breakout rooms\n* Terrace \u0026 panoramic views  \n[View details](../venues/minastirith.html)  \n---\u003cbr\u003esection: Our Venues \u003e The White Tower Upper Gallery\u003cbr\u003eheading_level: 2\u003cbr\u003epart_index: 1\u003cbr\u003epart_count: 1\u003cbr\u003esource: https://federicab03.github.io/ARGO_Usecase/pages/venue.html"}, {"color": "#2563eb", "font": {"color": "#111827"}, "id": "chunk:28", "label": "The White Tower Upper Gallery", "shape": "dot", "title": "index: 28\u003cbr\u003ename: The White Tower Upper Gallery\u003cbr\u003econtent: # The White Tower Upper Gallery  \nGrand Alpine Venue  \nA remarkable hilltop setting combining historic architecture, panoramic city views, and elevated terraces for memorable gatherings, formal events, and distinctive presentations.  \n**The White Tower Upper Gallery**  \nA fortress of hospitality above the city. Grand, dramatic, and framed by sweeping views, the White Tower offers an unforgettable setting for occasions that call for distinction.  \nPerched high above the city with commanding panor\u003cbr\u003esection: The White Tower Upper Gallery\u003cbr\u003eheading_level: 1\u003cbr\u003epart_index: 1\u003cbr\u003epart_count: 1\u003cbr\u003esource: https://federicab03.github.io/ARGO_Usecase/venues/minastirith.html"}, {"color": "#2563eb", "font": {"color": "#111827"}, "id": "chunk:29", "label": "Facilities", "shape": "dot", "title": "index: 29\u003cbr\u003ename: Facilities\u003cbr\u003econtent: ### Facilities  \n* Capacity: 40\u2013150 guests\n* 55 guest rooms (multiple configurations)\n* Elevator access to principal levels\n* Grand gallery and breakout spaces\n* Panoramic city and mountain views\n* Elevated terraces for receptions\n* Eastern balcony suited to acoustic performances\n* Multi-level catering and event setup\n* Historic architecture and distinctive interiors\n* Year-round operation  \n[Back to all venues](../pages/venue.html)  \n---\u003cbr\u003esection: The White Tower Upper Gallery \u003e Facilities\u003cbr\u003eheading_level: 2\u003cbr\u003epart_index: 1\u003cbr\u003epart_count: 1\u003cbr\u003esource: https://federicab03.github.io/ARGO_Usecase/venues/minastirith.html"}, {"color": "#2563eb", "font": {"color": "#111827"}, "id": "chunk:30", "label": "Party Tree Hall and Grounds", "shape": "dot", "title": "index: 30\u003cbr\u003ename: Party Tree Hall and Grounds\u003cbr\u003econtent: # Party Tree Hall and Grounds  \nIntimate Alpine Venue  \nA historic community gathering space in the heart of Michel Delving, combining rustic charm, open-air surroundings, and practical event facilities for relaxed, convivial celebrations.  \n**Party Tree Hall and Grounds**  \nWhere fellowship blooms beneath open skies. Warm, welcoming, and effortlessly convivial, the Party Tree Hall brings together shared tables, open meadows, and the spirit of the Shire.  \nNestled among the green of central Mich\u003cbr\u003esection: Party Tree Hall and Grounds\u003cbr\u003eheading_level: 1\u003cbr\u003epart_index: 1\u003cbr\u003epart_count: 1\u003cbr\u003esource: https://federicab03.github.io/ARGO_Usecase/venues/partyfield.html"}, {"color": "#2563eb", "font": {"color": "#111827"}, "id": "chunk:31", "label": "Facilities", "shape": "dot", "title": "index: 31\u003cbr\u003ename: Facilities\u003cbr\u003econtent: ### Facilities  \n* Capacity: 20\u201390 guests\n* 32 en-suite bedrooms\n* Fully accessible ground-level layout\n* Direct loading access for event setup\n* Indoor hall and adjoining courtyard\n* Dedicated food preparation and staging areas\n* Clear emergency access routes\n* Hiking trails from the property\n* Available year-round  \n[Back to all venues](../pages/venue.html)\u003cbr\u003esection: Party Tree Hall and Grounds \u003e Facilities\u003cbr\u003eheading_level: 2\u003cbr\u003epart_index: 1\u003cbr\u003epart_count: 1\u003cbr\u003esource: https://federicab03.github.io/ARGO_Usecase/venues/partyfield.html"}]);
+                  edges = new vis.DataSet([{"arrows": "to", "color": "#2563eb", "from": "chunk:0", "label": "SECTION", "title": "parent_section: Immersive Alpine Gatherings\u003cbr\u003echild_section: Immersive Alpine Gatherings \u003e Every gathering is uniquely yours", "to": "chunk:1"}, {"arrows": "to", "color": "#2563eb", "from": "chunk:10", "label": "SECTION", "title": "parent_section: Request a Proposal\u003cbr\u003echild_section: Request a Proposal \u003e Wayfarer Retreat Planning", "to": "chunk:11"}, {"arrows": "to", "color": "#2563eb", "from": "chunk:10", "label": "SECTION", "title": "parent_section: Request a Proposal\u003cbr\u003echild_section: Request a Proposal \u003e hello@wayfarer-retreats.alpine", "to": "chunk:12"}, {"arrows": "to", "color": "#2563eb", "from": "chunk:10", "label": "SECTION", "title": "parent_section: Request a Proposal\u003cbr\u003echild_section: Request a Proposal \u003e +39 258 256 1209", "to": "chunk:13"}, {"arrows": "to", "color": "#2563eb", "from": "chunk:20", "label": "SECTION", "title": "parent_section: Activities \u0026 Entertainment\u003cbr\u003echild_section: Activities \u0026 Entertainment \u003e Guided Experiences", "to": "chunk:21"}, {"arrows": "to", "color": "#2563eb", "from": "chunk:20", "label": "SECTION", "title": "parent_section: Activities \u0026 Entertainment\u003cbr\u003echild_section: Activities \u0026 Entertainment \u003e Workshops \u0026 Talks", "to": "chunk:22"}, {"arrows": "to", "color": "#2563eb", "from": "chunk:20", "label": "SECTION", "title": "parent_section: Activities \u0026 Entertainment\u003cbr\u003echild_section: Activities \u0026 Entertainment \u003e Evening Entertainment", "to": "chunk:23"}, {"arrows": "to", "color": "#2563eb", "from": "chunk:25", "label": "SECTION", "title": "parent_section: Our Venues\u003cbr\u003echild_section: Our Venues \u003e Party Tree Hall and Grounds", "to": "chunk:26"}, {"arrows": "to", "color": "#2563eb", "from": "chunk:25", "label": "SECTION", "title": "parent_section: Our Venues\u003cbr\u003echild_section: Our Venues \u003e The White Tower Upper Gallery", "to": "chunk:27"}, {"arrows": "to", "color": "#2563eb", "from": "chunk:28", "label": "SECTION", "title": "parent_section: The White Tower Upper Gallery\u003cbr\u003echild_section: The White Tower Upper Gallery \u003e Facilities", "to": "chunk:29"}, {"arrows": "to", "color": "#2563eb", "from": "chunk:30", "label": "SECTION", "title": "parent_section: Party Tree Hall and Grounds\u003cbr\u003echild_section: Party Tree Hall and Grounds \u003e Facilities", "to": "chunk:31"}, {"arrows": "to", "color": "#16a34a", "from": "chunk:0", "label": "SUBSECTION", "title": "parent_section: Immersive Alpine Gatherings\u003cbr\u003echild_section: Immersive Alpine Gatherings \u003e Tailored experiences for every occasion \u003e Catering \u0026 Dining", "to": "chunk:2"}, {"arrows": "to", "color": "#16a34a", "from": "chunk:0", "label": "SUBSECTION", "title": "parent_section: Immersive Alpine Gatherings\u003cbr\u003echild_section: Immersive Alpine Gatherings \u003e Tailored experiences for every occasion \u003e Activities \u0026 Entertainment", "to": "chunk:3"}, {"arrows": "to", "color": "#16a34a", "from": "chunk:0", "label": "SUBSECTION", "title": "parent_section: Immersive Alpine Gatherings\u003cbr\u003echild_section: Immersive Alpine Gatherings \u003e Tailored experiences for every occasion \u003e Venue \u0026 Logistics", "to": "chunk:4"}, {"arrows": "to", "color": "#16a34a", "from": "chunk:16", "label": "SUBSECTION", "title": "parent_section: Catering \u0026 Dining\u003cbr\u003echild_section: Catering \u0026 Dining \u003e We accommodate all preferences \u003e Vegetarian \u0026 Vegan", "to": "chunk:17"}, {"arrows": "to", "color": "#16a34a", "from": "chunk:16", "label": "SUBSECTION", "title": "parent_section: Catering \u0026 Dining\u003cbr\u003echild_section: Catering \u0026 Dining \u003e We accommodate all preferences \u003e Allergies \u0026 Intolerances", "to": "chunk:18"}, {"arrows": "to", "color": "#16a34a", "from": "chunk:16", "label": "SUBSECTION", "title": "parent_section: Catering \u0026 Dining\u003cbr\u003echild_section: Catering \u0026 Dining \u003e We accommodate all preferences \u003e Cultural \u0026 Religious", "to": "chunk:19"}, {"arrows": "to", "color": "#f97316", "from": "chunk:0", "label": "NEXT_PART", "title": "section: Immersive Alpine Gatherings", "to": "chunk:5"}, {"arrows": "to", "color": "#f97316", "from": "chunk:1", "label": "NEXT_PART", "title": "section: Immersive Alpine Gatherings \u003e Every gathering is uniquely yours", "to": "chunk:6"}, {"arrows": "to", "color": "#f97316", "from": "chunk:2", "label": "NEXT_PART", "title": "section: Immersive Alpine Gatherings \u003e Tailored experiences for every occasion \u003e Catering \u0026 Dining", "to": "chunk:7"}, {"arrows": "to", "color": "#f97316", "from": "chunk:3", "label": "NEXT_PART", "title": "section: Immersive Alpine Gatherings \u003e Tailored experiences for every occasion \u003e Activities \u0026 Entertainment", "to": "chunk:8"}, {"arrows": "to", "color": "#f97316", "from": "chunk:4", "label": "NEXT_PART", "title": "section: Immersive Alpine Gatherings \u003e Tailored experiences for every occasion \u003e Venue \u0026 Logistics", "to": "chunk:9"}, {"arrows": "to", "color": "#f97316", "from": "chunk:14", "label": "NEXT_PART", "title": "section: Frequently Asked Questions", "to": "chunk:15"}, {"arrows": "to", "color": "#2563eb", "from": "chunk:3", "label": "SECTION", "title": "evidence: Referenced section topic in source chunk\u003cbr\u003ematched_terms: experience, guided", "to": "chunk:21"}, {"arrows": "to", "color": "#2563eb", "from": "chunk:8", "label": "SECTION", "title": "evidence: Referenced section topic in source chunk\u003cbr\u003ematched_terms: experience, guided", "to": "chunk:21"}, {"arrows": "to", "color": "#16a34a", "from": "chunk:14", "label": "SUBSECTION", "title": "evidence: Referenced section topic in source chunk\u003cbr\u003ematched_terms: logistic, venue", "to": "chunk:4"}, {"arrows": "to", "color": "#2563eb", "from": "chunk:14", "label": "SECTION", "title": "evidence: Referenced section topic in source chunk\u003cbr\u003ematched_terms: planning, retreat, wayfarer", "to": "chunk:11"}, {"arrows": "to", "color": "#2563eb", "from": "chunk:14", "label": "SECTION", "title": "evidence: Referenced section topic in source chunk\u003cbr\u003ematched_terms: experience, guided", "to": "chunk:21"}, {"arrows": "to", "color": "#16a34a", "from": "chunk:15", "label": "SUBSECTION", "title": "evidence: Referenced section topic in source chunk\u003cbr\u003ematched_terms: logistic, venue", "to": "chunk:4"}, {"arrows": "to", "color": "#16a34a", "from": "chunk:16", "label": "SUBSECTION", "title": "evidence: Referenced section topic in source chunk\u003cbr\u003ematched_terms: catering, dining", "to": "chunk:2"}, {"arrows": "to", "color": "#16a34a", "from": "chunk:20", "label": "SUBSECTION", "title": "evidence: Referenced section topic in source chunk\u003cbr\u003ematched_terms: activitie, entertainment", "to": "chunk:3"}, {"arrows": "to", "color": "#2563eb", "from": "chunk:20", "label": "SECTION", "title": "evidence: Referenced section topic in source chunk\u003cbr\u003ematched_terms: experience, guided", "to": "chunk:21"}, {"arrows": "to", "color": "#16a34a", "from": "chunk:24", "label": "SUBSECTION", "title": "evidence: Referenced section topic in source chunk\u003cbr\u003ematched_terms: activitie, entertainment", "to": "chunk:3"}, {"arrows": "to", "color": "#2563eb", "from": "chunk:24", "label": "SECTION", "title": "evidence: Referenced section topic in source chunk\u003cbr\u003ematched_terms: entertainment, evening", "to": "chunk:23"}, {"arrows": "to", "color": "#2563eb", "from": "chunk:25", "label": "SECTION", "title": "evidence: Referenced section topic in source chunk\u003cbr\u003ematched_terms: facilitie", "to": "chunk:29"}, {"arrows": "to", "color": "#2563eb", "from": "chunk:25", "label": "SECTION", "title": "evidence: Referenced section topic in source chunk\u003cbr\u003ematched_terms: facilitie", "to": "chunk:31"}, {"arrows": "to", "color": "#2563eb", "from": "chunk:26", "label": "SECTION", "title": "evidence: Referenced section topic in source chunk\u003cbr\u003ematched_terms: facilitie", "to": "chunk:29"}, {"arrows": "to", "color": "#2563eb", "from": "chunk:26", "label": "SECTION", "title": "evidence: Referenced section topic in source chunk\u003cbr\u003ematched_terms: facilitie", "to": "chunk:31"}, {"arrows": "to", "color": "#16a34a", "from": "chunk:28", "label": "SUBSECTION", "title": "evidence: Referenced section topic in source chunk\u003cbr\u003ematched_terms: logistic, venue", "to": "chunk:4"}, {"arrows": "to", "color": "#2563eb", "from": "chunk:28", "label": "SECTION", "title": "evidence: Referenced section topic in source chunk\u003cbr\u003ematched_terms: gallery, tower, upper, white", "to": "chunk:27"}, {"arrows": "to", "color": "#2563eb", "from": "chunk:29", "label": "SECTION", "title": "evidence: Referenced section topic in source chunk\u003cbr\u003ematched_terms: facilitie", "to": "chunk:31"}, {"arrows": "to", "color": "#2563eb", "from": "chunk:30", "label": "SECTION", "title": "evidence: Referenced section topic in source chunk\u003cbr\u003ematched_terms: ground, party", "to": "chunk:26"}, {"arrows": "to", "color": "#2563eb", "from": "chunk:30", "label": "SECTION", "title": "evidence: Referenced section topic in source chunk\u003cbr\u003ematched_terms: facilitie", "to": "chunk:29"}, {"arrows": "to", "color": "#2563eb", "from": "chunk:30", "label": "SECTION", "title": "evidence: Referenced section topic in source chunk\u003cbr\u003ematched_terms: facilitie", "to": "chunk:31"}, {"arrows": "to", "color": "#2563eb", "from": "chunk:31", "label": "SECTION", "title": "evidence: Referenced section topic in source chunk\u003cbr\u003ematched_terms: facilitie", "to": "chunk:29"}, {"arrows": "to", "color": "#2563eb", "from": "chunk:0", "label": "SECTION", "title": "review_evidence: chunk:0 contains the explicit link [View Sample Itinerary](pages/schedule.html), and chunk:24 is the schedule.html page titled \u201cThere and Back Again.\u201d\u003cbr\u003ereview_confidence_percent: 95", "to": "chunk:24"}, {"arrows": "to", "color": "#2563eb", "from": "chunk:0", "label": "SECTION", "title": "review_evidence: chunk:0 contains the explicit link [Explore Venues](pages/venue.html), and chunk:25 is the venue.html page titled \u201cOur Venues.\u201d\u003cbr\u003ereview_confidence_percent: 95", "to": "chunk:25"}, {"arrows": "to", "color": "#16a34a", "from": "chunk:2", "label": "SUBSECTION", "title": "review_evidence: chunk:2 is the index card \u201cCatering \u0026 Dining\u201d and contains [Open page](pages/food.html); chunk:16 is the food.html page titled \u201cCatering \u0026 Dining.\u201d\u003cbr\u003ereview_confidence_percent: 95", "to": "chunk:16"}, {"arrows": "to", "color": "#16a34a", "from": "chunk:3", "label": "SUBSECTION", "title": "review_evidence: chunk:3 is the index card \u201cActivities \u0026 Entertainment\u201d and contains [Open page](pages/music.html); chunk:20 is the music.html page titled \u201cActivities \u0026 Entertainment.\u201d\u003cbr\u003ereview_confidence_percent: 95", "to": "chunk:20"}, {"arrows": "to", "color": "#16a34a", "from": "chunk:4", "label": "SUBSECTION", "title": "review_evidence: chunk:4 is the index card \u201cVenue \u0026 Logistics\u201d and contains [Open page](pages/venue.html); chunk:25 is the venue.html page titled \u201cOur Venues.\u201d\u003cbr\u003ereview_confidence_percent: 95", "to": "chunk:25"}, {"arrows": "to", "color": "#2563eb", "from": "chunk:5", "label": "SECTION", "title": "review_evidence: chunk:5 is the second part of the same index overview and contains the same explicit link [View Sample Itinerary](pages/schedule.html) to chunk:24.\u003cbr\u003ereview_confidence_percent: 88", "to": "chunk:24"}, {"arrows": "to", "color": "#2563eb", "from": "chunk:5", "label": "SECTION", "title": "review_evidence: chunk:5 is the second part of the same index overview and contains the same explicit link [Explore Venues](pages/venue.html) to chunk:25.\u003cbr\u003ereview_confidence_percent: 88", "to": "chunk:25"}, {"arrows": "to", "color": "#16a34a", "from": "chunk:7", "label": "SUBSECTION", "title": "review_evidence: chunk:7 is the second part of the \u201cCatering \u0026 Dining\u201d card and contains the same explicit link [Open page](pages/food.html) to chunk:16.\u003cbr\u003ereview_confidence_percent: 88", "to": "chunk:16"}, {"arrows": "to", "color": "#16a34a", "from": "chunk:8", "label": "SUBSECTION", "title": "review_evidence: chunk:8 is the second part of the \u201cActivities \u0026 Entertainment\u201d card and contains the same explicit link [Open page](pages/music.html) to chunk:20.\u003cbr\u003ereview_confidence_percent: 88", "to": "chunk:20"}, {"arrows": "to", "color": "#16a34a", "from": "chunk:9", "label": "SUBSECTION", "title": "review_evidence: chunk:9 is the second part of the \u201cVenue \u0026 Logistics\u201d card and contains the same explicit link [Open page](pages/venue.html) to chunk:25.\u003cbr\u003ereview_confidence_percent: 88", "to": "chunk:25"}, {"arrows": "to", "color": "#2563eb", "from": "chunk:25", "label": "SECTION", "title": "review_evidence: chunk:25 is the \u201cOur Venues\u201d collection page, and chunk:28 is the detail page for \u201cThe White Tower Upper Gallery,\u201d one of the two venues introduced there.\u003cbr\u003ereview_confidence_percent: 78", "to": "chunk:28"}, {"arrows": "to", "color": "#2563eb", "from": "chunk:25", "label": "SECTION", "title": "review_evidence: chunk:25 is the \u201cOur Venues\u201d collection page, and chunk:30 is the detail page for \u201cParty Tree Hall and Grounds,\u201d one of the two venues introduced there.\u003cbr\u003ereview_confidence_percent: 78", "to": "chunk:30"}, {"arrows": "to", "color": "#16a34a", "from": "chunk:26", "label": "SUBSECTION", "title": "review_evidence: chunk:26 is the venue card for \u201cParty Tree Hall and Grounds\u201d and contains [View details](../venues/partyfield.html); chunk:30 is the partyfield.html detail page for the same venue.\u003cbr\u003ereview_confidence_percent: 95", "to": "chunk:30"}, {"arrows": "to", "color": "#16a34a", "from": "chunk:27", "label": "SUBSECTION", "title": "review_evidence: chunk:27 is the venue card for \u201cThe White Tower Upper Gallery\u201d and contains [View details](../venues/minastirith.html); chunk:28 is the minastirith.html detail page for the same venue.\u003cbr\u003ereview_confidence_percent: 95", "to": "chunk:28"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>
