@@ -14,8 +14,8 @@ from pathlib import Path
 import chromadb
 from pydantic_ai import Agent, ModelSettings
 
-from graph_rag_workshop.settings import DEFAULT_NB_RETRIEVED_CHUNKS
-from graph_rag_workshop.utils.console_utils import (
+from argo.settings import DEFAULT_NB_RETRIEVED_CHUNKS
+from argo.utils.console_utils import (
     INFO_STYLE,
     console,
     print_question_answer,
@@ -23,13 +23,13 @@ from graph_rag_workshop.utils.console_utils import (
     print_step,
     run_with_progress,
 )
-from graph_rag_workshop.utils.part_02_graph_utils import (
+from argo.utils.part_02_graph_utils import (
     StructuralGraph,
     format_neighbor_graph_context,
     graph_context_from_chroma_results,
     load_structural_graph,
 )
-from graph_rag_workshop.utils.pydantic_utils import get_llm_model
+from argo.utils.pydantic_utils import get_llm_model
 
 HERE = Path(__file__).resolve().parent
 DATA_DIR = HERE.parent.parent / "data"

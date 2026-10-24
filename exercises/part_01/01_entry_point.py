@@ -12,14 +12,14 @@ The script demonstrates the following steps:
 import uvicorn
 from pydantic_ai import Agent, ModelSettings
 
-from graph_rag_workshop.utils.console_utils import (
+from argo.utils.console_utils import (
     INFO_STYLE,
     console,
     print_question_answer,
     print_step,
     run_with_progress,
 )
-from graph_rag_workshop.utils.pydantic_utils import get_llm_model
+from argo.utils.pydantic_utils import get_llm_model
 
 #################################################################
 # STEP 1 - Define the Pydantic AI agent

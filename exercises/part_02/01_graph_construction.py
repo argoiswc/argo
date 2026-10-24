@@ -13,14 +13,14 @@ from pathlib import Path
 from pydantic_ai import Agent, ModelSettings
 from pydantic_ai.output import NativeOutput
 
-from graph_rag_workshop.utils.console_utils import (
+from argo.utils.console_utils import (
     INFO_STYLE,
     console,
     print_result,
     print_step,
     run_with_progress,
 )
-from graph_rag_workshop.utils.part_02_graph_utils import (
+from argo.utils.part_02_graph_utils import (
     RelationshipReview,
     StructuralGraph,
     add_edge,
@@ -33,7 +33,7 @@ from graph_rag_workshop.utils.part_02_graph_utils import (
     save_graph_html,
     save_graph_json,
 )
-from graph_rag_workshop.utils.pydantic_utils import get_llm_model
+from argo.utils.pydantic_utils import get_llm_model
 
 HERE = Path(__file__).resolve().parent
 DATA_DIR = HERE.parent.parent / "data"

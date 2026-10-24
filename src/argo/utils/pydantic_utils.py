@@ -6,7 +6,7 @@ from pathlib import Path
 from pydantic_ai.models.openai import OpenAIChatModel
 from pydantic_ai.providers.openai import OpenAIProvider
 
-from graph_rag_workshop.settings import (
+from argo.settings import (
     DEFAULT_OLLAMA_BASE_URL,
     DEFAULT_OLLAMA_MODEL,
     DEFAULT_VLLM_BASE_URL,

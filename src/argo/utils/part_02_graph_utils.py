@@ -12,7 +12,7 @@ from neo4j import GraphDatabase
 from neo4j.exceptions import Neo4jError, ServiceUnavailable
 from pydantic import BaseModel, Field
 
-from graph_rag_workshop.settings import DEFAULT_NB_RETRIEVED_CHUNKS
+from argo.settings import DEFAULT_NB_RETRIEVED_CHUNKS
 
 
 @dataclass
@@ -582,14 +582,14 @@ def save_graph_cypher(graph: StructuralGraph, output_path: Path) -> Path:
         "CREATE CONSTRAINT webpage_id IF NOT EXISTS FOR (n:Webpage) REQUIRE n.id IS UNIQUE;",
         "CREATE CONSTRAINT section_id IF NOT EXISTS FOR (n:Section) REQUIRE n.id IS UNIQUE;",
         "CREATE CONSTRAINT chunk_id IF NOT EXISTS FOR (n:Chunk) REQUIRE n.id IS UNIQUE;",
-        "MATCH (n {graph_rag_workshop_graph: 'structural'}) DETACH DELETE n;",
+        "MATCH (n {argo_graph: 'structural'}) DETACH DELETE n;",
     ]
 
     for node in graph.nodes.values():
         labels = ":".join(node.labels)
         properties = {
             "id": node.id,
-            "graph_rag_workshop_graph": "structural",
+            "argo_graph": "structural",
             **node.properties,
         }
         property_text = ", ".join(
@@ -628,7 +628,7 @@ def write_structural_graph_to_neo4j(
         driver = GraphDatabase.driver(uri, auth=(user, password))
         with driver.session(database=database) as session:
             session.run(
-                "MATCH (n {graph_rag_workshop_graph: 'structural'}) DETACH DELETE n"
+                "MATCH (n {argo_graph: 'structural'}) DETACH DELETE n"
             )
             session.run(
                 "CREATE CONSTRAINT chunk_id IF NOT EXISTS "
@@ -642,7 +642,7 @@ def write_structural_graph_to_neo4j(
                     id=node.id,
                     properties={
                         "id": node.id,
-                        "graph_rag_workshop_graph": "structural",
+                        "argo_graph": "structural",
                         **node.properties,
                     },
                 )

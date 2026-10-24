@@ -46,7 +46,7 @@ Select Ollama for one command:
 LLM_PROVIDER=ollama uv run python exercises/part_01/01_entry_point.py
 ```
 
-Or change the central setting in `src/graph_rag_workshop/settings.py` to:
+Or change the central setting in `src/argo/settings.py` to:
 
 ```python
 LLM_PROVIDER = "ollama"

@@ -5,8 +5,8 @@ from datetime import datetime
 import uvicorn
 from pydantic_ai import Agent
 
-from graph_rag_workshop.utils.console_utils import INFO_STYLE, console, print_step
-from graph_rag_workshop.utils.pydantic_utils import get_llm_model
+from argo.utils.console_utils import INFO_STYLE, console, print_step
+from argo.utils.pydantic_utils import get_llm_model
 
 agent = Agent(
     model=get_llm_model(),

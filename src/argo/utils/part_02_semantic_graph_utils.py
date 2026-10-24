@@ -155,7 +155,7 @@ def remove_document_nodes(
             """
             MATCH (document:Document)
             WHERE document:__KGBuilder__
-               OR document.graph_rag_workshop_graph = 'semantic-fallback'
+               OR document.argo_graph = 'semantic-fallback'
             DETACH DELETE document
             """
         )
@@ -193,7 +193,7 @@ def ensure_semantic_graph(
             """
             MATCH (node)
             WHERE (node:__KGBuilder__ OR
-                   node.graph_rag_workshop_graph = 'semantic-fallback')
+                   node.argo_graph = 'semantic-fallback')
               AND any(label IN labels(node) WHERE label IN $node_types)
             DETACH DELETE node
             """,
@@ -210,7 +210,7 @@ def ensure_semantic_graph(
             session.run(
                 f"MERGE (node:{labels} {{fallback_id: $id}}) "
                 "SET node += $properties, "
-                "node.graph_rag_workshop_graph = 'semantic-fallback'",
+                "node.argo_graph = 'semantic-fallback'",
                 id=node["id"],
                 properties=node["properties"],
             )

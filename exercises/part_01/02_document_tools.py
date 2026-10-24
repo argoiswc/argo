@@ -14,13 +14,13 @@ from pathlib import Path
 from pdfminer.high_level import extract_text
 from rapidocr import RapidOCR
 
-from graph_rag_workshop.utils.console_utils import (
+from argo.utils.console_utils import (
     INFO_STYLE,
     console,
     print_result,
     print_step,
 )
-from graph_rag_workshop.utils.part_01_document_tools import extract_webpage_to_markdown
+from argo.utils.part_01_document_tools import extract_webpage_to_markdown
 
 # Define file paths and constants
 HERE = Path(__file__).resolve().parent

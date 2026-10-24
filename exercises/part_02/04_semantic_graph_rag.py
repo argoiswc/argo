@@ -15,7 +15,7 @@ from neo4j_graphrag.generation.prompts import RagTemplate
 from neo4j_graphrag.llm import OpenAILLM
 from neo4j_graphrag.retrievers import Text2CypherRetriever
 
-from graph_rag_workshop.utils.console_utils import (
+from argo.utils.console_utils import (
     INFO_STYLE,
     console,
     print_question_answer,
@@ -23,13 +23,13 @@ from graph_rag_workshop.utils.console_utils import (
     print_step,
     run_with_progress,
 )
-from graph_rag_workshop.utils.part_02_semantic_graph_utils import (
+from argo.utils.part_02_semantic_graph_utils import (
     HYBRID_TEXT2CYPHER_PROMPT,
     SEMANTIC_CYPHER_EXAMPLES,
     SEMANTIC_GRAPH_SCHEMA,
     ensure_semantic_graph,
 )
-from graph_rag_workshop.utils.pydantic_utils import get_llm_settings
+from argo.utils.pydantic_utils import get_llm_settings
 
 NEO4J_URI = os.getenv("NEO4J_URI", "bolt://localhost:7687")
 NEO4J_USER = os.getenv("NEO4J_USER", "neo4j")

@@ -16,8 +16,8 @@ from langchain_text_splitters import (
 )
 from pydantic_ai import Agent, ModelSettings
 
-from graph_rag_workshop.settings import DEFAULT_VECTORSTORE_NAME
-from graph_rag_workshop.utils.console_utils import (
+from argo.settings import DEFAULT_VECTORSTORE_NAME
+from argo.utils.console_utils import (
     INFO_STYLE,
     console,
     print_question_answer,
@@ -25,12 +25,12 @@ from graph_rag_workshop.utils.console_utils import (
     print_step,
     run_with_progress,
 )
-from graph_rag_workshop.utils.part_01_document_tools import extract_webpage_to_markdown
-from graph_rag_workshop.utils.part_01_rag_utils import (
+from argo.utils.part_01_document_tools import extract_webpage_to_markdown
+from argo.utils.part_01_rag_utils import (
     format_markdown_chunks,
     save_chunks_to_markdown,
 )
-from graph_rag_workshop.utils.pydantic_utils import get_llm_model
+from argo.utils.pydantic_utils import get_llm_model
 
 HERE = Path(__file__).resolve().parent
 DATA_DIR = HERE.parent.parent / "data"

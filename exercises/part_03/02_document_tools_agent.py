@@ -15,25 +15,25 @@ import uvicorn
 from neo4j import GraphDatabase
 from pydantic_ai import Agent, ModelSettings
 
-from graph_rag_workshop.settings import DEFAULT_NB_RETRIEVED_CHUNKS
-from graph_rag_workshop.utils.console_utils import INFO_STYLE, console, print_step
-from graph_rag_workshop.utils.part_01_document_tools import (
+from argo.settings import DEFAULT_NB_RETRIEVED_CHUNKS
+from argo.utils.console_utils import INFO_STYLE, console, print_step
+from argo.utils.part_01_document_tools import (
     extract_text_from_image_file,
     extract_text_from_pdf_file,
     list_my_available_documents,
 )
-from graph_rag_workshop.utils.part_02_graph_utils import (
+from argo.utils.part_02_graph_utils import (
     search_structural_graph_rag_context,
 )
-from graph_rag_workshop.utils.part_02_semantic_graph_utils import (
+from argo.utils.part_02_semantic_graph_utils import (
     ensure_semantic_graph,
     search_semantic_graph_rag,
 )
-from graph_rag_workshop.utils.part_03_resilience_utils import (
+from argo.utils.part_03_resilience_utils import (
     RetryAndRecoverCapability,
 )
-from graph_rag_workshop.utils.part_03_web_tools import safe_duckduckgo_search
-from graph_rag_workshop.utils.pydantic_utils import get_llm_model, get_llm_settings
+from argo.utils.part_03_web_tools import safe_duckduckgo_search
+from argo.utils.pydantic_utils import get_llm_model, get_llm_settings
 
 # Define file paths and constants
 HERE = Path(__file__).resolve().parent

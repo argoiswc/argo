@@ -12,20 +12,20 @@ from neo4j import GraphDatabase
 from neo4j_graphrag.experimental.pipeline.kg_builder import SimpleKGPipeline
 from neo4j_graphrag.llm import OpenAILLM
 
-from graph_rag_workshop.utils.console_utils import (
+from argo.utils.console_utils import (
     INFO_STYLE,
     console,
     print_result,
     print_step,
     run_with_progress,
 )
-from graph_rag_workshop.utils.part_02_semantic_graph_utils import (
+from argo.utils.part_02_semantic_graph_utils import (
     ChromaDefaultEmbedder,
     clear_generated_knowledge_graph,
     remove_document_nodes,
     save_semantic_graph_html,
 )
-from graph_rag_workshop.utils.pydantic_utils import get_llm_settings
+from argo.utils.pydantic_utils import get_llm_settings
 
 HERE = Path(__file__).resolve().parent
 DATA_DIR = HERE.parent.parent / "data"
