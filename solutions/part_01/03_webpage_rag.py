@@ -45,7 +45,7 @@ WEBPAGE_MARKDOWN_PATH = WEBPAGE_RAG_DIR / "ARGO_Usecase.md"
 CHUNKS_MARKDOWN_PATH = WEBPAGE_RAG_DIR / "ARGO_Usecase_chunks.md"
 COLLECTION_NAME = DEFAULT_VECTORSTORE_NAME
 
-USER_QUESTION = "What venues are available and what are their characteristics?"
+USER_QUESTION = "Which venues are available, and what are their characteristics?"
 
 
 #################################################################

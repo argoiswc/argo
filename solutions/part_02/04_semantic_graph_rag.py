@@ -44,7 +44,7 @@ FALLBACK_GRAPH_PATH = (
 )
 
 DEFAULT_QUERY = (
-    "What venues are available, and which services or activities do they offer?"
+    "Which venues are available, and what are their characteristics?"
 )
 USER_QUERY = " ".join(sys.argv[1:]).strip() or DEFAULT_QUERY
 

@@ -40,7 +40,7 @@ VECTORSTORE_NAME = "part_01_argo_usecase_webpage"
 GRAPH_JSON_PATH = GRAPH_SOLUTIONS_DIR / "webpage_chunk_graph_after_llm_review.json"
 
 TOP_K = DEFAULT_NB_RETRIEVED_CHUNKS
-USER_QUERY = "What venues are available and what are their characteristics?"
+USER_QUERY = "Which venues are available, and what are their characteristics?"
 
 
 #################################################################
